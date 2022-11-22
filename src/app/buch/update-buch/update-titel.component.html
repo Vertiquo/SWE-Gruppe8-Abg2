@@ -1,0 +1,52 @@
+<!--
+    Copyright (C) 2018 - present Juergen Zimmermann, Hochschule Karlsruhe
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<div class="row">
+  <label for="titelUpdate" class="col col-2 col-form-label gy-3">Titel *</label>
+
+  <div class="col col-10 gy-3" [formGroup]="form">
+    <div class="input-group">
+      <input
+        id="titelUpdate"
+        placeholder="Titel"
+        class="form-control"
+        autofocus
+        formControlName="titel"
+        [class.is-invalid]="titel.invalid && titel.touched"
+        [class.is-valid]="titel.valid && titel.touched"
+      />
+
+      <div
+        class="invalid-feedback"
+        *ngIf="titel.invalid && titel.touched && titel.errors"
+      >
+        <i class="material-icons">error</i>
+        <span class="ms-1">
+          <span *ngIf="titel.errors['required']">
+            Ein Buchtitel muss eingegeben werden.
+          </span>
+          <span *ngIf="titel.errors['minlength']">
+            Ein Buchtitel muss mindestens 2 Zeichen lang sein.
+          </span>
+          <span *ngIf="titel.errors['pattern']">
+            Ein Buchtitel muss mit einem Buchstaben oder einer Ziffer beginnen.
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

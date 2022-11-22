@@ -1,0 +1,114 @@
+<!--
+    Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- Template Binding durch die Direktive ngIf -->
+<!-- Eine Direktive ist eine Komponente ohne View -->
+
+<div class="card" aria-label="Gefundene Buecher" *ngIf="buecher.length">
+  <div class="card-header">
+    <i class="material-icons">folder_open</i>
+    <span class="ms-1 fw-bold">Gefundene B&uuml;cher</span>
+  </div>
+  <div class="card-body">
+    <table
+      class="table table-striped table-hover table-responsive"
+      [@easeIn]="'in'"
+    >
+      <thead class="thead-default">
+        <th>Nr.</th>
+        <th>ID</th>
+        <th>Titel</th>
+        <th>Verlag</th>
+        <th>Schlagw&ouml;rter</th>
+        <th>
+          <span class="visually-hidden">Spalte f&uuml;r Details</span>
+        </th>
+        <th *ngIf="isAdmin || (isAdmin$ | async)">
+          <span class="visually-hidden">Spalte f&uuml;r Entfernen</span>
+        </th>
+      </thead>
+      <tbody>
+        <!-- Template Binding: ngFor -->
+        <!-- Event-Binding: statt (click) auch on-click -->
+        <!-- ts als Komponente: https://stackoverflow.com/questions/34556277/angular2-table-rows-as-component -->
+        <tr
+          *ngFor="let buch of buecher; index as idx; trackBy: trackBy"
+          [@easeOut]="'in'"
+        >
+          <td (click)="onClick(buch)">{{ idx + 1 }}</td>
+          <td (click)="onClick(buch)">{{ buch.id }}</td>
+          <td (click)="onClick(buch)">{{ buch.titel }}</td>
+          <td (click)="onClick(buch)">
+            <span [ngSwitch]="buch.verlag">
+              <span *ngSwitchCase="'FOO_VERLAG'">Foo Verlag</span>
+              <span *ngSwitchCase="'BAR_VERLAG'">Bar Verlag</span>
+              <span *ngSwitchDefault>unbekannt</span>
+            </span>
+          </td>
+          <td (click)="onClick(buch)">
+            <span *ngFor="let schlagwort of buch.schlagwoerter">
+              <span [ngSwitch]="schlagwort">
+                <span *ngSwitchCase="'JAVASCRIPT'"> JavaScript<br /> </span>
+                <span *ngSwitchCase="'TYPESCRIPT'"> TypeScript </span>
+              </span>
+            </span>
+          </td>
+          <td>
+            <!-- Pfad /:id, in buch-routing.module.ts -->
+            <a
+              [routerLink]="['..', buch.id]"
+              [state]="{ buch: buch }"
+              title="Details anzeigen"
+            >
+              <i class="material-icons">search</i>
+            </a>
+          </td>
+          <!-- implizites "unsubscribe()" durch async -->
+          <td *ngIf="isAdmin || (isAdmin$ | async)">
+            <span (click)="onRemove(buch)" title="Entfernen">
+              <i class="material-icons">delete</i>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <div>
+      <i class="material-icons">info</i>
+      <span class="ms-1" [ngPlural]="buecher.length">
+        <!-- zu vergleichender Ausdruck -->
+        <ng-template ngPluralCase="=0"> Es gibt kein Buch </ng-template>
+        <ng-template ngPluralCase="=1"> Es gibt ein Buch </ng-template>
+        <ng-template ngPluralCase="other">
+          Es gibt {{ buecher.length }} B&uuml;cher
+        </ng-template>
+      </span>
+    </div>
+
+    <div>
+      <i class="material-icons">info</i>
+      <span class="ms-1">
+        Zur Anzeige der JSON-Datens&auml;tze in gefundene-buecher.html am
+        Dateiende den Kommentar beim Tag &lt;pre&gt; entfernen
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- Ausgabe im Webbrowser durch: -->
+<!-- <pre>{{buecher | json}}</pre> -->
