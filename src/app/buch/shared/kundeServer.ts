@@ -14,8 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { type Buch, type BuchShared } from './kunde';
+import { type Kunde, type KundeShared } from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
+import { type Url } from 'node:url';
 import log from 'loglevel';
 
 interface Link {
@@ -31,10 +32,9 @@ interface Link {
  *       String handhabbar sind.
  * </ul>
  */
-export interface BuchServer extends BuchShared {
-    rating?: number;
-    datum?: string;
-    schlagwoerter?: string[];
+export interface KundeServer extends KundeShared {
+    geburtsdatum?: string;
+    homepage?: Url | undefined;
     // eslint-disable-next-line @typescript-eslint/naming-convention
     _links?: {
         self: Link;
@@ -46,15 +46,14 @@ export interface BuchServer extends BuchShared {
 }
 
 /**
- * Ein Buch-Objekt mit JSON-Daten erzeugen, die von einem RESTful Web
+ * Ein Kunde-Objekt mit JSON-Daten erzeugen, die von einem RESTful Web
  * Service kommen.
- * @param buch JSON-Objekt mit Daten vom RESTful Web Server
- * @return Das initialisierte Buch-Objekt
+ * @param kunde JSON-Objekt mit Daten vom RESTful Web Server
+ * @return Das initialisierte Kunde-Objekt
  */
-// eslint-disable-next-line max-lines-per-function
-export const toBuch = (buchServer: BuchServer, etag?: string) => {
+export const toKunde = (kundeServer: KundeServer, etag?: string) => {
     let selfLink: string | undefined;
-    const { _links } = buchServer; // eslint-disable-line @typescript-eslint/naming-convention
+    const { _links } = kundeServer; // eslint-disable-line @typescript-eslint/naming-convention
     if (_links !== undefined) {
         const { self } = _links;
         selfLink = self.href;
@@ -74,22 +73,20 @@ export const toBuch = (buchServer: BuchServer, etag?: string) => {
     }
 
     const {
-        titel,
-        rating,
-        art,
-        verlag,
-        datum,
-        preis,
-        rabatt,
-        lieferbar,
-        schlagwoerter,
-        isbn,
-    } = buchServer;
+        nachname,
+        email,
+        kategorie,
+        hasNewsletter,
+        geburtsdatum,
+        homepage,
+        geschlecht,
+        familienstand,
+    } = kundeServer;
 
     let datumTemporal: Temporal.PlainDate | undefined;
     // TODO Parsing, ob der Datum-String valide ist
-    if (datum !== undefined) {
-        const [yearStr, monthStr, dayStr] = datum
+    if (geburtsdatum !== undefined) {
+        const [yearStr, monthStr, dayStr] = geburtsdatum
             .replace(/T.*/gu, '')
             .split('-');
         const year = Number(yearStr);
@@ -98,44 +95,40 @@ export const toBuch = (buchServer: BuchServer, etag?: string) => {
         datumTemporal = new Temporal.PlainDate(year, month, day);
     }
 
-    const buch: Buch = {
+    const kunde: Kunde = {
         id,
-        titel: titel ?? 'unbekannt',
-        rating,
-        art,
-        verlag,
-        datum: datumTemporal,
-        preis,
-        rabatt: rabatt ?? 0,
-        lieferbar,
-        schlagwoerter: schlagwoerter ?? [],
-        isbn,
+        nachname,
+        email,
+        kategorie,
+        hasNewsletter,
+        geburtsdatum: datumTemporal,
+        homepage,
+        geschlecht,
+        familienstand,
         version,
     };
-    log.debug('Buch.fromServer: buch=', buch);
-    return buch;
+    log.debug('Kunde.fromServer: kunde=', kunde);
+    return kunde;
 };
 
 /**
- * Konvertierung des Buchobjektes in ein JSON-Objekt f&uuml;r den RESTful
+ * Konvertierung des Kundeobjektes in ein JSON-Objekt f&uuml;r den RESTful
  * Web Service.
  * @return Das JSON-Objekt f&uuml;r den RESTful Web Service
  */
-export const toBuchServer = (buch: Buch): BuchServer => {
-    const datum =
-        buch.datum === undefined
+export const toKundeServer = (kunde: Kunde): KundeServer => {
+    const geburtsdatum =
+        kunde.geburtsdatum === undefined
             ? Temporal.Now.plainDateTimeISO().toString()
-            : buch.datum.toString();
+            : kunde.geburtsdatum.toString();
     return {
-        titel: buch.titel,
-        rating: buch.rating ?? 0,
-        art: buch.art,
-        verlag: buch.verlag ?? '',
-        datum,
-        preis: buch.preis,
-        rabatt: buch.rabatt,
-        lieferbar: buch.lieferbar ?? false,
-        schlagwoerter: buch.schlagwoerter,
-        isbn: buch.isbn,
+        nachname: kunde.nachname,
+        email: kunde.email,
+        kategorie: kunde.kategorie,
+        hasNewsletter: kunde.hasNewsletter,
+        geburtsdatum: kunde.geburtsdatum,
+        homepage: kunde.homepage,
+        geschlecht: kunde.geschlecht,
+        familienstand: kunde.familienstand,
     };
 };
