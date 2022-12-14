@@ -17,8 +17,8 @@
 import { Component, type OnInit } from '@angular/core';
 import { type DataItem, NgxChartsModule } from '@swimlane/ngx-charts';
 import { first, map, tap } from 'rxjs/operators';
-import { type Buch } from '../shared/buch';
-import { BuchReadService } from '../shared/buchRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { type Buch } from '../shared/kunde';
+import { BuchReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { FindError } from '../shared/errors';
 import { KeineBuecherError } from './errors';
 import log from 'loglevel';

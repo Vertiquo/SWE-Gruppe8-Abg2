@@ -33,9 +33,9 @@ import { Component, Input, type OnInit } from '@angular/core';
 import { Router, RouterLinkWithHref } from '@angular/router'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { easeIn, easeOut } from '../../../shared/animations';
 import { first, tap } from 'rxjs/operators';
-import { type Buch } from '../../shared/buch';
+import { type Buch } from '../../shared/kunde';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import { BuchWriteService } from '../../shared/buchWrite.service';
+import { BuchWriteService } from '../../shared/kundeWrite.service';
 import { RemoveError } from '../../shared/errors';
 import { Subject } from 'rxjs';
 import log from 'loglevel';

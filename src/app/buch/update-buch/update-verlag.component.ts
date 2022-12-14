@@ -22,7 +22,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
-import { type Verlag } from '../shared/buch';
+import { type Verlag } from '../shared/kunde';
 import log from 'loglevel';
 
 /**

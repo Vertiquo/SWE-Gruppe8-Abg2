@@ -16,7 +16,7 @@
  */
 
 import { Component, Input } from '@angular/core';
-import { type Buch } from '../../shared/buch';
+import { type Buch } from '../../shared/kunde';
 import { ErrorMessageComponent } from '../../../shared/error-message.component';
 import { GefundeneBuecherComponent } from './gefundene-buecher.component';
 import { NgIf } from '@angular/common';

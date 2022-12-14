@@ -19,9 +19,9 @@
 import {
     BuchReadService,
     type Suchkriterien,
-} from '../shared/buchRead.service';
+} from '../shared/kundeRead.service';
 import { first, tap } from 'rxjs/operators';
-import { type Buch } from '../shared/buch';
+import { type Buch } from '../shared/kunde';
 import { Component } from '@angular/core';
 import { FindError } from '../shared/errors';
 import { HttpStatusCode } from '@angular/common/http';

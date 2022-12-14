@@ -16,7 +16,7 @@
  */
 
 import { Component, Output } from '@angular/core';
-import { type BuchArt } from '../../shared/buch';
+import { type BuchArt } from '../../shared/kunde';
 import { FormsModule } from '@angular/forms';
 import { Subject } from 'rxjs';
 import log from 'loglevel';

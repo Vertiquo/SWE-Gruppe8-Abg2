@@ -23,7 +23,7 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { ISBN_REGEX } from '../shared/buch';
+import { ISBN_REGEX } from '../shared/kunde';
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
 

@@ -19,8 +19,8 @@ import { ActivatedRoute, Router } from '@angular/router'; // eslint-disable-line
 import { Component, type OnInit } from '@angular/core';
 import { first, tap } from 'rxjs/operators';
 import { AuthService } from '../../auth/auth.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { type Buch } from '../shared/buch';
-import { BuchReadService } from '../shared/buchRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { type Buch } from '../shared/kunde';
+import { BuchReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { DetailsBearbeitenComponent } from './details-bearbeiten.component';
 import { DetailsBreadcrumbsComponent } from './details-breadcrumbs.component';
 import { DetailsSchlagwoerterComponent } from './schlagwoerter/details-schlagwoerter.component';

@@ -16,7 +16,7 @@
  */
 
 import { Component, Input, type OnInit } from '@angular/core';
-import { type Buch } from '../../shared/buch';
+import { type Buch } from '../../shared/kunde';
 import { DetailsArtComponent } from './details-art.component';
 import { DetailsBewertungComponent } from './details-bewertung.component';
 import { DetailsDatumComponent } from './details-datum.component';

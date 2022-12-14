@@ -18,7 +18,7 @@
 import { Component, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { type Verlag } from '../../shared/buch';
+import { type Verlag } from '../../shared/kunde';
 import log from 'loglevel';
 
 /**

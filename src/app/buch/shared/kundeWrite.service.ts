@@ -26,12 +26,12 @@ import { type Observable, of } from 'rxjs';
 import { RemoveError, SaveError, UpdateError } from './errors';
 import { catchError, first, map } from 'rxjs/operators';
 import { AuthService } from '../../auth/auth.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { type Buch } from './buch';
+import { type Buch } from './kunde';
 import { Injectable } from '@angular/core';
 import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
 import { paths } from '../../shared/paths';
-import { toBuchServer } from './buchServer';
+import { toBuchServer } from './kundeServer';
 
 // Methoden der Klasse HttpClient
 //  * get(url, options) – HTTP GET request

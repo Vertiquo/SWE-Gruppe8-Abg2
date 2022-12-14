@@ -16,14 +16,14 @@
  */
 
 import { ActivatedRoute, Router } from '@angular/router'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { type Buch, type BuchArt, type Verlag } from '../shared/buch';
+import { type Buch, type BuchArt, type Verlag } from '../shared/kunde';
 import { Component, type OnInit } from '@angular/core';
 import { FindError, UpdateError } from '../shared/errors';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { first, map, tap } from 'rxjs/operators';
-import { BuchReadService } from '../shared/buchRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { BuchWriteService } from '../shared/buchWrite.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { BuchReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { BuchWriteService } from '../shared/kundeWrite.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { ErrorMessageComponent } from '../../shared/error-message.component';
 import { NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser'; // eslint-disable-line @typescript-eslint/consistent-type-imports

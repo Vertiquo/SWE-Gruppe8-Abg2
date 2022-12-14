@@ -17,7 +17,7 @@
 
 import { Component, Input, type OnInit } from '@angular/core';
 import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
-import { type BuchArt } from '../../shared/buch';
+import { type BuchArt } from '../../shared/kunde';
 import log from 'loglevel';
 
 /**

@@ -19,7 +19,7 @@ import { type BuchForm, toBuch } from './buchForm';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { first, tap } from 'rxjs/operators';
-import { BuchWriteService } from '../shared/buchWrite.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { BuchWriteService } from '../shared/kundeWrite.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { Component } from '@angular/core';
 import { CreateArtComponent } from './create-art.component';
 import { CreateDatumModule } from './create-datum.module';

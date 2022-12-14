@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { type Buch, type BuchShared } from './buch';
+import { type Buch, type BuchShared } from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
 

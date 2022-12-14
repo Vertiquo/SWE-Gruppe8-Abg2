@@ -23,7 +23,7 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { type BuchArt } from '../shared/buch';
+import { type BuchArt } from '../shared/kunde';
 import log from 'loglevel';
 
 /**
