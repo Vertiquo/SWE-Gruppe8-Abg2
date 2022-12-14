@@ -1,3 +1,5 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable @typescript-eslint/consistent-type-imports */
 /*
  * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
@@ -14,8 +16,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import {
     HttpClient,
     type HttpErrorResponse,
@@ -25,13 +25,13 @@ import {
 import { type Observable, of } from 'rxjs';
 import { RemoveError, SaveError, UpdateError } from './errors';
 import { catchError, first, map } from 'rxjs/operators';
-import { AuthService } from '../../auth/auth.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { type Buch } from './kunde';
+import { AuthService } from '../../auth/auth.service';
 import { Injectable } from '@angular/core';
+import { type Kunde } from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
 import { paths } from '../../shared/paths';
-import { toBuchServer } from './kundeServer';
+import { toKundeServer } from './kundeServer';
 
 // Methoden der Klasse HttpClient
 //  * get(url, options) – HTTP GET request
@@ -51,7 +51,7 @@ import { toBuchServer } from './kundeServer';
  * hinzugefuegt und ist in allen Klassen der Webanwendung verfuegbar.
  */
 @Injectable({ providedIn: 'root' })
-export class BuchWriteService {
+export class KundeWriteService {
     readonly #baseUrl = paths.base;
 
     /**
@@ -62,20 +62,23 @@ export class BuchWriteService {
         private readonly httpClient: HttpClient,
         private readonly authService: AuthService,
     ) {
-        log.debug('BuchWriteService.constructor: baseUrl=', this.#baseUrl);
+        log.debug('KundeWriteService.constructor: baseUrl=', this.#baseUrl);
     }
 
     /**
-     * Ein neues Buch anlegen
-     * @param neuesBuch Das JSON-Objekt mit dem neuen Buch
+     * Einen neuen Kunden anlegen
+     * @param neuerKunde Das JSON-Objekt mit dem neuen Kunden
      */
-    save(buch: Buch): Observable<SaveError | string> {
-        log.debug('BuchWriteService.save: buch=', buch);
-        buch.datum = Temporal.Now.plainDateISO();
-        log.debug('BuchWriteService.save: buch=', buch);
+    save(kunde: Kunde): Observable<SaveError | string> {
+        log.debug('KundeWriteService.save: kunde=', kunde);
+        kunde.geburtsdatum = Temporal.Now.plainDateISO();
+        log.debug('KundeWriteService.save: kunde=', kunde);
 
         const authorizationStr = `${this.authService.authorization}`;
-        log.debug('BuchWriteService.save: authorizationStr=', authorizationStr);
+        log.debug(
+            'KundeWriteService.save: authorizationStr=',
+            authorizationStr,
+        );
 
         /* eslint-disable @typescript-eslint/naming-convention */
         const headers = new HttpHeaders({
@@ -86,7 +89,7 @@ export class BuchWriteService {
         /* eslint-enable @typescript-eslint/naming-convention */
 
         return this.httpClient
-            .post(this.#baseUrl, toBuchServer(buch), {
+            .post(this.#baseUrl, toKundeServer(kunde), {
                 headers,
                 observe: 'response',
                 responseType: 'text',
@@ -113,7 +116,7 @@ export class BuchWriteService {
 
         const response = result;
         log.debug(
-            'BuchWriteService.#mapSaveResultToId: map: response',
+            'KundeWriteService.#mapSaveResultToId: map: response',
             response,
         );
 
@@ -129,16 +132,16 @@ export class BuchWriteService {
     }
 
     /**
-     * Ein vorhandenes Buch aktualisieren
-     * @param buch Das JSON-Objekt mit den aktualisierten Buchdaten
+     * Einen vorhandenen Kunden aktualisieren
+     * @param kunde Das JSON-Objekt mit den aktualisierten Kundendaten
      */
-    update(buch: Buch): Observable<Buch | UpdateError> {
-        log.debug('BuchWriteService.update: buch=', buch);
+    update(kunde: Kunde): Observable<Kunde | UpdateError> {
+        log.debug('KundeWriteService.update: kunde=', kunde);
 
         // id, version und schlagwoerter gehoeren nicht zu den serverseitigen Nutzdaten
-        const { id, version, schlagwoerter, ...buchDTO } = buch; // eslint-disable-line @typescript-eslint/no-unused-vars
+        const { id, version, schlagwoerter, ...kundeDTO } = kunde; // eslint-disable-line @typescript-eslint/no-unused-vars
         if (version === undefined) {
-            const msg = `Keine Versionsnummer fuer das Buch ${id}`;
+            const msg = `Keine Versionsnummer fuer das Kunde ${id}`;
             log.debug(msg);
             return of(new UpdateError(-1, msg));
         }
@@ -147,7 +150,7 @@ export class BuchWriteService {
 
         const authorizationStr = `${this.authService.authorization}`;
         log.debug(
-            'BuchWriteService.update: authorizationStr=',
+            'KundeWriteService.update: authorizationStr=',
             authorizationStr,
         );
 
@@ -159,17 +162,17 @@ export class BuchWriteService {
             Accept: 'text/plain',
         });
         /* eslint-enable @typescript-eslint/naming-convention */
-        log.debug('BuchWriteService.update: headers=', headers);
+        log.debug('KundeWriteService.update: headers=', headers);
 
-        log.debug('BuchWriteService.update: buchDTO=', buchDTO);
+        log.debug('KundeWriteService.update: kundeDTO=', kundeDTO);
         return this.httpClient
-            .put(url, buchDTO, { headers, observe: 'response' })
+            .put(url, kundeDTO, { headers, observe: 'response' })
             .pipe(
                 first(),
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 catchError((err: unknown, _$) => {
                     const errResponse = err as HttpErrorResponse;
-                    log.debug('BuchWriteService.update: err=', err);
+                    log.debug('KundeWriteService.update: err=', err);
                     return of(new UpdateError(errResponse.status, errResponse));
                 }),
 
@@ -179,8 +182,8 @@ export class BuchWriteService {
                     if (versionOderError instanceof UpdateError) {
                         return versionOderError;
                     }
-                    buch.version = versionOderError;
-                    return buch;
+                    kunde.version = versionOderError;
+                    return kunde;
                 }),
             );
     }
@@ -194,11 +197,11 @@ export class BuchWriteService {
 
         const response = result;
         log.debug(
-            'BuchWriteService.#mapUpdateResultToVersion: response',
+            'KundeWriteService.#mapUpdateResultToVersion: response',
             response,
         );
         const etag = response.headers.get('ETag');
-        log.debug('BuchWriteService.#mapUpdateResultToVersion: etag=', etag);
+        log.debug('KundeWriteService.#mapUpdateResultToVersion: etag=', etag);
 
         const ende = etag?.lastIndexOf('"');
         const versionStr = etag?.slice(1, ende) ?? '1';
@@ -206,16 +209,16 @@ export class BuchWriteService {
     }
 
     /**
-     * Ein Buch l&ouml;schen
-     * @param buch Das JSON-Objekt mit dem zu loeschenden Buch
+     * Einen Kunde l&ouml;schen
+     * @param kunde Das JSON-Objekt mit dem zu loeschenden Kunden
      */
-    remove(buch: Buch): Observable<Record<string, unknown> | RemoveError> {
-        log.debug('BuchWriteService.remove: buch=', buch);
-        const url = `${this.#baseUrl}/${buch.id}`;
+    remove(kunde: Kunde): Observable<Record<string, unknown> | RemoveError> {
+        log.debug('KundeWriteService.remove: kunde=', kunde);
+        const url = `${this.#baseUrl}/${kunde.id}`;
 
         const authorizationStr = `${this.authService.authorization}`;
         log.debug(
-            'BuchWriteService.remove: authorizationStr=',
+            'KundeWriteService.remove: authorizationStr=',
             authorizationStr,
         );
 
