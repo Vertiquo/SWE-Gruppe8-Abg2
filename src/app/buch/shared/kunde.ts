@@ -40,11 +40,11 @@ export interface Kunde {
     id: string | undefined;
     version: number | undefined;
     nachname: string;
-    email: string;
-    kategorie: number;
+    email: string | undefined;
+    kategorie: number | undefined;
     hasNewsletter: boolean;
-    geburtsdatum: Temporal.PlainDate;
-    homepage: Url;
+    geburtsdatum: Temporal.PlainDate | undefined;
+    homepage: Url | undefined;
     geschlecht: Geschlecht;
     familienstand: Familienstand;
 }
@@ -58,8 +58,8 @@ export interface Kunde {
  */
 export interface KundeShared {
     nachname: string;
-    email?: string;
-    kategorie?: number;
+    email?: string | undefined;
+    kategorie?: number | undefined;
     hasNewsletter: boolean;
     geschlecht: Geschlecht;
     familienstand: Familienstand;
