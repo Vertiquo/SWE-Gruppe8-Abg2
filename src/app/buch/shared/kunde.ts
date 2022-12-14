@@ -15,12 +15,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import { type Temporal } from '@js-temporal/polyfill';
+import { type Url } from 'node:url';
 
 export const MAX_RATING = 5;
 
-export type Verlag = 'BAR_VERLAG' | 'FOO_VERLAG';
+export type Familienstand =
+    | 'GESCHIEDEN'
+    | 'LEDIG'
+    | 'VERHEIRATET'
+    | 'VERWITWET';
 
-export type BuchArt = 'DRUCKAUSGABE' | 'KINDLE';
+export type Geschlecht = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
+
+export type Interessen = 'LESEN' | 'REISEN' | 'SPORT';
 
 export const ISBN_REGEX =
     /\d{3}-\d-\d{5}-\d{3}-\d|\d-\d{5}-\d{3}-\d|\d{13}|\d{10}/u;
@@ -29,34 +36,31 @@ export const ISBN_REGEX =
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
  * Functions fuer Abfragen und Aenderungen.
  */
-export interface Buch {
+export interface Kunde {
     id: string | undefined;
     version: number | undefined;
-    titel: string;
-    rating: number | undefined;
-    art: BuchArt;
-    verlag: Verlag | '' | undefined;
-    datum: Temporal.PlainDate | undefined;
-    preis: number;
-    rabatt: number;
-    lieferbar: boolean | undefined;
-    schlagwoerter: string[];
-    isbn: string;
+    nachname: string;
+    email: string;
+    kategorie: number;
+    hasNewsletter: boolean;
+    geburtsdatum: Temporal.PlainDate;
+    homepage: Url;
+    geschlecht: Geschlecht;
+    familienstand: Familienstand;
 }
 
 /**
- * Gemeinsame Datenfelder unabh&auml;ngig, ob die Buchdaten von einem Server
+ * Gemeinsame Datenfelder unabh&auml;ngig, ob die Kundedaten von einem Server
  * (z.B. RESTful Web Service) oder von einem Formular kommen.
  * Verwendung in den Interfaces:
- * - BuchServer für BuchReadService
- * - BuchForm für CreateBuchComponent
+ * - KundeServer für KundeReadService
+ * - KundeForm für CreateKundeComponent
  */
-export interface BuchShared {
-    titel: string | undefined;
-    verlag?: Verlag | '';
-    art: BuchArt;
-    preis: number;
-    rabatt: number | undefined;
-    lieferbar?: boolean;
-    isbn: string;
+export interface KundeShared {
+    nachname: string;
+    email?: string;
+    kategorie?: number;
+    hasNewsletter: boolean;
+    geschlecht: Geschlecht;
+    familienstand: Familienstand;
 }
