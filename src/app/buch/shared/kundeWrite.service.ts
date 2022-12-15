@@ -138,8 +138,8 @@ export class KundeWriteService {
     update(kunde: Kunde): Observable<Kunde | UpdateError> {
         log.debug('KundeWriteService.update: kunde=', kunde);
 
-        // id, version und schlagwoerter gehoeren nicht zu den serverseitigen Nutzdaten
-        const { id, version, schlagwoerter, ...kundeDTO } = kunde; // eslint-disable-line @typescript-eslint/no-unused-vars
+        // id, version gehoeren nicht zu den serverseitigen Nutzdaten
+        const { id, version, ...kundeDTO } = kunde;
         if (version === undefined) {
             const msg = `Keine Versionsnummer fuer das Kunde ${id}`;
             log.debug(msg);

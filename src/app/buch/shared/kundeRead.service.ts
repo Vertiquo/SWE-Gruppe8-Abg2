@@ -227,10 +227,7 @@ export class KundeReadService {
             return httpParams;
         }
 
-        const { nachname, geschlecht, familienstand, schlagwoerter } =
-            suchkriterien;
-        const { javascript, typescript } = schlagwoerter;
-
+        const { nachname, geschlecht, familienstand } = suchkriterien;
         if (nachname !== '') {
             httpParams = httpParams.set('nachname', nachname);
         }
@@ -239,12 +236,6 @@ export class KundeReadService {
         }
         if (familienstand !== '') {
             httpParams = httpParams.set('familienstand', familienstand);
-        }
-        if (javascript) {
-            httpParams = httpParams.set('javascript', 'true');
-        }
-        if (typescript) {
-            httpParams = httpParams.set('typescript', 'true');
         }
         return httpParams;
     }
