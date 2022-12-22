@@ -126,7 +126,7 @@ export const toKundeServer = (kunde: Kunde): KundeServer => {
         email: kunde.email,
         kategorie: kunde.kategorie,
         hasNewsletter: kunde.hasNewsletter,
-        geburtsdatum: kunde.geburtsdatum,
+        geburtsdatum,
         homepage: kunde.homepage,
         geschlecht: kunde.geschlecht,
         familienstand: kunde.familienstand,
