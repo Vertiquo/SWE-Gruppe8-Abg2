@@ -29,8 +29,7 @@ export type Geschlecht = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
 
 export type Interessen = 'LESEN' | 'REISEN' | 'SPORT';
 
-export const ISBN_REGEX =
-    /\d{3}-\d-\d{5}-\d{3}-\d|\d-\d{5}-\d{3}-\d|\d{13}|\d{10}/u;
+export const EMAIL_REGEX = /@.*?\./u;
 
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
