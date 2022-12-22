@@ -1,3 +1,5 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable max-lines-per-function */
 /*
  * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
@@ -14,7 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { type Kunde, type KundeShared } from './kunde';
+import type {
+    Familienstand,
+    Geschlecht,
+    Interessen,
+    Kunde,
+    KundeShared,
+    Umsatz,
+} from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
 import { type Url } from 'node:url';
 import log from 'loglevel';
@@ -35,6 +44,10 @@ interface Link {
 export interface KundeServer extends KundeShared {
     geburtsdatum?: string;
     homepage?: Url | undefined;
+    geschlecht: Geschlecht;
+    familienstand: Familienstand;
+    interessen: Interessen;
+    umsatz: Umsatz;
     // eslint-disable-next-line @typescript-eslint/naming-convention
     _links?: {
         self: Link;
@@ -59,7 +72,7 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         selfLink = self.href;
     }
 
-    let id = 'N/A';
+    let id: string | undefined;
     if (selfLink !== undefined) {
         const lastSlash = selfLink.lastIndexOf('/');
         id = selfLink.slice(lastSlash + 1);
@@ -81,6 +94,9 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         homepage,
         geschlecht,
         familienstand,
+        interessen,
+        umsatz,
+        adresse,
     } = kundeServer;
 
     let datumTemporal: Temporal.PlainDate | undefined;
@@ -105,6 +121,9 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         homepage,
         geschlecht,
         familienstand,
+        interessen,
+        umsatz,
+        adresse,
         version,
     };
     log.debug('Kunde.fromServer: kunde=', kunde);
@@ -130,5 +149,8 @@ export const toKundeServer = (kunde: Kunde): KundeServer => {
         homepage: kunde.homepage,
         geschlecht: kunde.geschlecht,
         familienstand: kunde.familienstand,
+        interessen: kunde.interessen,
+        umsatz: kunde.umsatz,
+        adresse: kunde.adresse,
     };
 };

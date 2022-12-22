@@ -29,6 +29,21 @@ export type Geschlecht = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
 
 export type Interessen = 'LESEN' | 'REISEN' | 'SPORT';
 
+export interface Umsatz {
+    betrag: bigint;
+    waehrung: string;
+}
+
+export interface User {
+    username: string;
+    password: string;
+}
+
+export interface Adresse {
+    plz: string;
+    ort: string;
+}
+
 export const EMAIL_REGEX = /@.*?\./u;
 
 /**
@@ -46,6 +61,9 @@ export interface Kunde {
     homepage: Url | undefined;
     geschlecht: Geschlecht;
     familienstand: Familienstand;
+    interessen: Interessen;
+    umsatz: Umsatz;
+    adresse: Adresse;
 }
 
 /**
@@ -60,6 +78,5 @@ export interface KundeShared {
     email?: string | undefined;
     kategorie?: number | undefined;
     hasNewsletter: boolean;
-    geschlecht: Geschlecht;
-    familienstand: Familienstand;
+    adresse: Adresse;
 }
