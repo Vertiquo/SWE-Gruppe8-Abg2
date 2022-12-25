@@ -61,7 +61,7 @@ export interface Kunde {
     homepage: Url | undefined;
     geschlecht: Geschlecht;
     familienstand: Familienstand;
-    interessen: Interessen;
+    interessen: string[];
     umsatz: Umsatz;
     adresse: Adresse;
 }
