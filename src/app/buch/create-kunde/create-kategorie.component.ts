@@ -32,7 +32,7 @@ export class CreateKategorieComponent implements OnInit {
     @Input()
     createForm!: FormGroup;
 
-    readonly kategorie = new FormControl(undefined);
+    protected readonly kategorie = new FormControl(undefined);
 
     ngOnInit() {
         log.debug('CreateKategorieComponent.ngOnInit');

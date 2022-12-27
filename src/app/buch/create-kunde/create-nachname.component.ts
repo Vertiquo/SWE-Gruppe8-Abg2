@@ -40,7 +40,7 @@ export class CreateNachnameComponent implements OnInit {
     //    serverseitig mittels Request/Response
     //    clientseitig bei den Ereignissen keyup, change, blur, ...
     // Ein Endbenutzer bewirkt staendig einen neuen Fehlerstatus
-    readonly nachname = new FormControl(undefined, [
+    protected readonly nachname = new FormControl(undefined, [
         Validators.required,
         Validators.minLength(CreateNachnameComponent.MIN_LENGTH),
         Validators.pattern(/^[A-Z]\w/u),

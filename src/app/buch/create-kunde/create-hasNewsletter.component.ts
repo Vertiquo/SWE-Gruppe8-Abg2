@@ -34,7 +34,7 @@ export class CreateHasNewsletterComponent implements OnInit {
     @Input()
     createForm!: FormGroup;
 
-    readonly hasNewsletter = new FormControl(false);
+    protected readonly hasNewsletter = new FormControl(false);
 
     ngOnInit() {
         log.debug('CreateHasNewsletterComponent.ngOnInit');

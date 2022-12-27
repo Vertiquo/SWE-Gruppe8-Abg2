@@ -43,7 +43,7 @@ export class CreateEmailComponent implements OnInit {
     //    serverseitig mittels Request/Response
     //    clientseitig bei den Ereignissen keyup, change, blur, ...
     // Ein Endbenutzer bewirkt staendig einen neuen Fehlerstatus
-    readonly email = new FormControl(undefined, [
+    protected readonly email = new FormControl(undefined, [
         Validators.required,
         Validators.minLength(CreateEmailComponent.MIN_LENGTH),
         Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/u),

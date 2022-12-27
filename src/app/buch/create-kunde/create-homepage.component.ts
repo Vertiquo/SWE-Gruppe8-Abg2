@@ -40,7 +40,7 @@ export class CreateHomepageComponent implements OnInit {
     //    serverseitig mittels Request/Response
     //    clientseitig bei den Ereignissen keyup, change, blur, ...
     // Ein Endbenutzer bewirkt staendig einen neuen Fehlerstatus
-    readonly homepage = new FormControl('', [
+    protected readonly homepage = new FormControl('', [
         Validators.required,
         Validators.minLength(CreateHomepageComponent.MIN_LENGTH),
     ]);

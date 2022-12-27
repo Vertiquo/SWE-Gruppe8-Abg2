@@ -32,11 +32,11 @@ export class CreateInteressenComponent implements OnInit {
     @Input()
     createForm!: FormGroup;
 
-    readonly sport = new FormControl(false);
+    protected readonly sport = new FormControl(false);
 
-    readonly lesen = new FormControl(false);
+    protected readonly lesen = new FormControl(false);
 
-    readonly reisen = new FormControl(false);
+    protected readonly reisen = new FormControl(false);
 
     ngOnInit() {
         log.debug('CreateInteressenComponent.ngOnInit');
