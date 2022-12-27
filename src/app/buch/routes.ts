@@ -15,39 +15,40 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { BalkendiagrammComponent } from './diagramme/balkendiagramm.component';
-import { CreateBuchComponent } from './create-buch/create-buch.component';
-import { DetailsBuchComponent } from './details-buch/details-buch.component';
+// import { BalkendiagrammComponent } from './diagramme/balkendiagramm.component';
+import { CreateKundeComponent } from './create-kunde/create-kunde.component';
+// import { DetailsKundeComponent } from './details-kunde/details-kunde.component';
 import { HomeComponent } from '../home/home.component';
-import { LiniendiagrammComponent } from './diagramme/liniendiagramm.component';
+// import { LiniendiagrammComponent } from './diagramme/liniendiagramm.component';
 import { type Routes } from '@angular/router';
-import { SucheBuecherComponent } from './suche-buecher/suche-buecher.component';
-import { TortendiagrammComponent } from './diagramme/tortendiagramm.component';
-import { UpdateBuchComponent } from './update-buch/update-buch.component';
-import { canDeactivateGuard } from './create-buch/create-deactivate.guard';
-import { isAdminGuard } from '../auth/isAdmin.guard';
+// import { SucheKundenComponent } from './suche-kunden/suche-kunden.component';
+// import { TortendiagrammComponent } from './diagramme/tortendiagramm.component';
+// import { UpdateKundeComponent } from './update-kunde/update-kunde.component';
+// import { canDeactivateGuard } from './create-kunde/create-deactivate.guard';
+// import { isAdminGuard } from '../auth/isAdmin.guard';
 
-// Route-Definitionen fuer das Feature-Modul "buch":
+// Route-Definitionen fuer das Feature-Modul "kunde":
 // Zuordnung von Pfaden und Komponenten mit HTML-Templates
 export const ROUTES: Routes = [
-    {
+    /*  {
         path: 'suche',
-        component: SucheBuecherComponent,
+        component: SucheKundenComponent,
         title: 'Suche',
     },
+    */
     {
         path: 'create',
-        component: CreateBuchComponent,
-        title: 'Neues Buch',
-        canMatch: [isAdminGuard],
-        canDeactivate: [canDeactivateGuard],
+        component: CreateKundeComponent,
+        title: 'Neues Kunde',
+        // canMatch: [isAdminGuard],
+        // canDeactivate: [canDeactivateGuard],
     },
     {
         path: 'create',
         component: HomeComponent,
         title: 'Beispiel',
     },
-    {
+    /*  {
         path: 'balkendiagramm',
         component: BalkendiagrammComponent,
         title: 'Balkendiagramm',
@@ -80,20 +81,23 @@ export const ROUTES: Routes = [
         component: HomeComponent,
         title: 'Beispiel',
     },
+    */
 
     // id als Pfad-Parameter
-    {
+    /*  {
         path: 'update/:id',
-        component: UpdateBuchComponent,
+        component: UpdateKundeComponent,
         canMatch: [isAdminGuard],
     },
+    */
     {
         path: 'update/:id',
         component: HomeComponent,
         title: 'Beispiel',
     },
-    {
+    /*  {
         path: ':id',
-        component: DetailsBuchComponent,
+        component: DetailsKundeComponent,
     },
+    */
 ];
