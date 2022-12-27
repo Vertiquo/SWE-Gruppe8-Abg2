@@ -1,0 +1,27 @@
+<mat-form-field
+  appearance="outline"
+  class="userInputField"
+  [formGroup]="createForm"
+>
+  <mat-label for="ortInput">Ort</mat-label>
+  <input
+    id="ortInput"
+    matInput
+    placeholder="Ihr Ort"
+    autocomplete="off"
+    [class.is-invalid]="ort.invalid && ort.touched"
+    [class.is-valid]="ort.valid && ort.touched"
+    minlength="2"
+    formControlName="ort"
+  />
+  <mat-hint>Bitte den Ort eingeben</mat-hint>
+  <mat-error *ngIf="ortInput.hasError('required')">
+    Ein Ort ist benötigt.
+  </mat-error>
+  <mat-error *ngIf="ortInput.hasError('minlength')">
+    Ein Ort ist mindestens 2 Zeichen lang.
+  </mat-error>
+  <mat-error *ngIf="ortInput.hasError('pattern')">
+    Ein Ort darf so nicht eingegeben werden.
+  </mat-error>
+</mat-form-field>

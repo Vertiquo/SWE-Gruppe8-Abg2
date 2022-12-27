@@ -1,0 +1,17 @@
+<mat-form-field
+  appearance="outline"
+  class="userInputField"
+  [formGroup]="createForm"
+>
+  <mat-label for="waehrungInput">Währung</mat-label>
+  <input
+    id="waehrungInput"
+    matInput
+    placeholder="Ihre Währung"
+    autocomplete="off"
+    [class.is-invalid]="waehrung.invalid && waehrung.touched"
+    [class.is-valid]="waehrung.valid && waehrung.touched"
+    formControlName="waehrung"
+  />
+  <mat-hint>Bitte die Währung eingeben</mat-hint>
+</mat-form-field>

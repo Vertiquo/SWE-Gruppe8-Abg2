@@ -1,0 +1,26 @@
+<mat-form-field
+  appearance="outline"
+  class="userInputField"
+  [formGroup]="createForm"
+>
+  <mat-label for="postleitzahlInput">Postleitzahl</mat-label>
+  <input
+    id="postleitzahlInput"
+    matInput
+    placeholder="Ihre Postleitzahl"
+    autocomplete="off"
+    [class.is-invalid]="plz.invalid && plz.touched"
+    [class.is-valid]="plz.valid && plz.touched"
+    formControlName="plz"
+  />
+  <mat-hint>Bitte die Postleitzahl eingeben</mat-hint>
+  <mat-error *ngIf="postleitzahlInput.hasError('required')">
+    Eine Postleitzahl ist benötigt.
+  </mat-error>
+  <mat-error *ngIf="postleitzahlInput.hasError('minlength')">
+    Eine Postleitzahl ist mindestens 2 Zeichen lang.
+  </mat-error>
+  <mat-error *ngIf="postleitzahlInput.hasError('pattern')">
+    Eine Postleitzahl darf so nicht eingegeben werden.
+  </mat-error>
+</mat-form-field>

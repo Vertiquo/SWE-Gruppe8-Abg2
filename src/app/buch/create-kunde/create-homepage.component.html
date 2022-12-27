@@ -1,0 +1,21 @@
+<mat-form-field
+  appearance="outline"
+  class="userInputField"
+  [formGroup]="createForm"
+>
+  <mat-label for="homepageInput">Homepage</mat-label>
+  <input
+    id="homepageInput"
+    matInput
+    placeholder="Ihre Homepage"
+    autocomplete="off"
+    [class.is-invalid]="homepage.invalid && homepage.touched"
+    [class.is-valid]="homepage.valid && homepage.touched"
+    minlength="5"
+    formControlName="homepage"
+  />
+  <mat-hint>Bitte die Homepagen eingeben</mat-hint>
+  <mat-error *ngIf="emailInput.hasError('minlength')">
+    Die URL einer Homepage ist mindestens 5 Zeichen lang.
+  </mat-error>
+</mat-form-field>

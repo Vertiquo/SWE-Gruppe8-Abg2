@@ -1,0 +1,18 @@
+<mat-form-field
+  appearance="outline"
+  class="userInputField"
+  [formGroup]="createForm"
+>
+  <mat-label>Geschlecht</mat-label>
+  <mat-select
+    id="geschlechtInput"
+    formControlName="geschlecht"
+    [class.is-invalid]="geschlecht.invalid && geschlecht.touched"
+    [class.is-valid]="geschlecht.valid && geschlecht.touched"
+  >
+    <mat-option value="MAENNLICH">Männlich</mat-option>
+    <mat-option value="WEIBLICH">Weiblich</mat-option>
+    <mat-option value="DIVERS">Divers</mat-option>
+  </mat-select>
+  <mat-hint>Bitte Geschlecht auswählen</mat-hint>
+</mat-form-field>
