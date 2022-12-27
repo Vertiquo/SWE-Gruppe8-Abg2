@@ -1,3 +1,5 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable array-bracket-newline */
 /*
  * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
@@ -30,7 +32,7 @@ import log from 'loglevel';
     styleUrls: ['./create-kunde.component.scss'],
 })
 export class CreateHomepageComponent implements OnInit {
-    private static readonly MIN_LENGTH = 2;
+    private static readonly MIN_LENGTH = 5;
 
     @Input()
     createForm!: FormGroup;
@@ -41,7 +43,6 @@ export class CreateHomepageComponent implements OnInit {
     //    clientseitig bei den Ereignissen keyup, change, blur, ...
     // Ein Endbenutzer bewirkt staendig einen neuen Fehlerstatus
     protected readonly homepage = new FormControl('', [
-        Validators.required,
         Validators.minLength(CreateHomepageComponent.MIN_LENGTH),
     ]);
 
