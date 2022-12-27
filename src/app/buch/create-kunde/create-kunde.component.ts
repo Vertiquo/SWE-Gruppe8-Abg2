@@ -1,8 +1,5 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable import/no-unresolved */
 /*
  * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
@@ -20,9 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { Component, type OnInit } from '@angular/core';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { type KundeForm, toKunde } from './kundeForm';
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
+import { KundeWriteService, SaveError } from '../shared';
+import { first, tap } from 'rxjs/operators';
+import { Component } from '@angular/core';
 import { CreateBetragComponent } from './create-betrag.component';
 import { CreateEmailComponent } from './create-email.component';
 import { CreateFamilienstandComponent } from './create-familienstand.component';
@@ -36,8 +36,6 @@ import { CreateNachnameComponent } from './create-nachname.component';
 import { CreateOrtComponent } from './create-ort.component';
 import { CreatePlzComponent } from './create-plz.component';
 import { CreateWaehrungComponent } from './create-waehrung.component';
-import { KundeWriteService, SaveError } from '../shared'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { first, tap } from 'rxjs/operators';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import log from 'loglevel';
@@ -65,6 +63,7 @@ import log from 'loglevel';
         CreatePlzComponent,
         CreateOrtComponent,
     ],
+    standalone: true,
 })
 export class CreateKundeComponent {
     readonly createForm = new FormGroup({});

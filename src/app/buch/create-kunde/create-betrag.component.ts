@@ -28,6 +28,7 @@ import log from 'loglevel';
     selector: 'hs-create-betrag',
     templateUrl: './create-betrag.component.html',
     styleUrls: ['./create-kunde.component.scss'],
+    standalone: true,
 })
 export class CreateBetragComponent implements OnInit {
     @Input()
