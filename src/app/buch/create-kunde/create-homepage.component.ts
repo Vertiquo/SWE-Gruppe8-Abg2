@@ -18,7 +18,14 @@
  */
 
 import { Component, Input, type OnInit } from '@angular/core';
-import { FormControl, type FormGroup, Validators } from '@angular/forms';
+import {
+    FormControl,
+    type FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
+    Validators,
+} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import log from 'loglevel';
 
 /**
@@ -30,6 +37,8 @@ import log from 'loglevel';
     selector: 'hs-create-homepage',
     templateUrl: './create-homepage.component.html',
     styleUrls: ['./create-kunde.component.scss'],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule],
 })
 export class CreateHomepageComponent implements OnInit {
     private static readonly MIN_LENGTH = 5;

@@ -16,7 +16,15 @@
  */
 
 import { Component, Input, type OnInit } from '@angular/core';
-import { FormControl, type FormGroup } from '@angular/forms';
+import {
+    FormControl,
+    type FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
+    Validators,
+} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
 import log from 'loglevel';
 
 /**
@@ -27,6 +35,13 @@ import log from 'loglevel';
     selector: 'hs-create-familienstand',
     templateUrl: './create-familienstand.component.html',
     styleUrls: ['./create-kunde.component.scss'],
+    standalone: true,
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatOptionModule,
+    ],
 })
 export class CreateFamilienstandComponent implements OnInit {
     @Input()

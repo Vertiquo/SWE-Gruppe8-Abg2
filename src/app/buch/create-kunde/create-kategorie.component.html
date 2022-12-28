@@ -1,26 +1,22 @@
-
 <mat-form-field
-appearance="outline"
-class="userInputField"
-[formGroup]="createForm"
+  appearance="outline"
+  class="userInputField"
+  [formGroup]="createForm"
 >
-<mat-label>Kategorie</mat-label>
-<mat-select 
-  id="kategorieInput"
-  formControlName="kategorie"
->
-  <mat-optgroup label="Kategorie auswählen"></mat-optgroup>
-  <mat-optgroup label="Hoch"
-    ><mat-option value="5">5</mat-option></mat-optgroup
-  >
-  <mat-optgroup label="Mittel">
-    <mat-option value="4">4</mat-option>
-    <mat-option value="3">3</mat-option>
-  </mat-optgroup>
-  <mat-optgroup label="Niedrig">
-    <mat-option value="2">2</mat-option>
-    <mat-option value="1">1</mat-option>
-  </mat-optgroup>
-</mat-select>
-<mat-hint>Bitte die Kategorie auswählen</mat-hint>
+  <mat-label>Kategorie</mat-label>
+  <mat-select id="kategorieInput" formControlName="kategorie">
+    <mat-optgroup label="Kategorie auswählen"></mat-optgroup>
+    <mat-optgroup label="Hoch"
+      ><mat-option value="5">5</mat-option></mat-optgroup
+    >
+    <mat-optgroup label="Mittel">
+      <mat-option value="4">4</mat-option>
+      <mat-option value="3">3</mat-option>
+    </mat-optgroup>
+    <mat-optgroup label="Niedrig">
+      <mat-option value="2">2</mat-option>
+      <mat-option value="1">1</mat-option>
+    </mat-optgroup>
+  </mat-select>
+  <mat-hint>Bitte die Kategorie auswählen</mat-hint>
 </mat-form-field>

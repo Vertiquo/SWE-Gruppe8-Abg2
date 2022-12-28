@@ -16,7 +16,15 @@
  */
 
 import { Component, Input, type OnInit } from '@angular/core';
-import { FormControl, type FormGroup, Validators } from '@angular/forms';
+import {
+    FormControl,
+    type FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
+    Validators,
+} from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import log from 'loglevel';
 
 /**
@@ -27,6 +35,13 @@ import log from 'loglevel';
     selector: 'hs-create-geburtsdatum',
     templateUrl: './create-geburtsdatum.component.html',
     styleUrls: ['./create-kunde.component.scss'],
+    standalone: true,
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+    ],
 })
 export class CreateGeburtsdatumComponent implements OnInit {
     @Input()

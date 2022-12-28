@@ -4,14 +4,14 @@
   [formGroup]="createForm"
 >
   <mat-label for="betragInput">Umsatz</mat-label>
-    <input
-      id="betragInput"
-      matInput
-      placeholder="Ihr Betrag"
-      autocomplete="off"
-      [class.is-invalid]="betrag.invalid && betrag.touched"
-      [class.is-valid]="betrag.valid && betrag.touched"
-      formControlName="betrag"
-    />
+  <input
+    id="betragInput"
+    matInput
+    placeholder="bsp.: 999"
+    autocomplete="off"
+    [class.is-invalid]="betrag.invalid && betrag.touched"
+    [class.is-valid]="betrag.valid && betrag.touched"
+    formControlName="betrag"
+  />
   <mat-hint>Bitte den Umsatz eingeben</mat-hint>
 </mat-form-field>
