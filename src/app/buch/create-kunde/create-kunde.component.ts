@@ -1,4 +1,5 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable @typescript-eslint/consistent-type-imports */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /*
  * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
@@ -17,10 +18,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { type KundeForm, toKunde } from './kundeForm';
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import { KundeWriteService, SaveError } from '../shared';
 import { first, tap } from 'rxjs/operators';
 import { Component } from '@angular/core';
 import { CreateBetragComponent } from './create-betrag.component';
@@ -36,8 +36,12 @@ import { CreateNachnameComponent } from './create-nachname.component';
 import { CreateOrtComponent } from './create-ort.component';
 import { CreatePlzComponent } from './create-plz.component';
 import { CreateWaehrungComponent } from './create-waehrung.component';
-import { FormGroup } from '@angular/forms';
-import { Router } from '@angular/router'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { KundeWriteService } from '../shared/kundeWrite.service';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { Router } from '@angular/router';
+import { SaveError } from '../shared/errors';
 import log from 'loglevel';
 
 /**
@@ -62,6 +66,11 @@ import log from 'loglevel';
         CreateWaehrungComponent,
         CreatePlzComponent,
         CreateOrtComponent,
+        FormsModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        ReactiveFormsModule,
     ],
     standalone: true,
 })
