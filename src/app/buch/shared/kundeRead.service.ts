@@ -36,7 +36,7 @@ export interface Suchkriterien {
     nachname: string;
     geschlecht: Geschlecht | '';
     familienstand: Familienstand | '';
-    schlagwoerter: { javascript: boolean; typescript: boolean };
+    hasNewsletter: boolean;
 }
 
 export interface KundenServer {
@@ -227,7 +227,8 @@ export class KundeReadService {
             return httpParams;
         }
 
-        const { nachname, geschlecht, familienstand } = suchkriterien;
+        const { nachname, geschlecht, familienstand, hasNewsletter } =
+            suchkriterien;
         if (nachname !== '') {
             httpParams = httpParams.set('nachname', nachname);
         }
@@ -236,6 +237,9 @@ export class KundeReadService {
         }
         if (familienstand !== '') {
             httpParams = httpParams.set('familienstand', familienstand);
+        }
+        if (hasNewsletter) {
+            httpParams = httpParams.set('hasNewsletter', hasNewsletter);
         }
         return httpParams;
     }
