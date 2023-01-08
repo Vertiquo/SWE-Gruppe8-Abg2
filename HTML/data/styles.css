@@ -1,0 +1,130 @@
+﻿.ax_default {
+  font-family:"Arial Standard", "Arial", sans-serif;
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  letter-spacing:normal;
+  color:#333333;
+  vertical-align:none;
+  text-align:center;
+  line-height:normal;
+  text-transform:none;
+}
+.box_3 {
+}
+.image {
+}
+.primary_button {
+  color:#FFFFFF;
+}
+.heading_1 {
+  font-family:"Arial Standard", "Arial", sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:32px;
+  text-align:left;
+}
+.heading_2 {
+  font-family:"Arial Standard", "Arial", sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:24px;
+  text-align:left;
+}
+.heading_3 {
+  font-family:"Arial Standard", "Arial", sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:18px;
+  text-align:left;
+}
+.heading_4 {
+  font-family:"Arial Standard", "Arial", sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:14px;
+  text-align:left;
+}
+.heading_5 {
+  font-family:"Arial Standard", "Arial", sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  text-align:left;
+}
+.heading_6 {
+  font-family:"Arial Standard", "Arial", sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size:10px;
+  text-align:left;
+}
+.label {
+  font-size:13px;
+  text-align:left;
+}
+.paragraph {
+  text-align:left;
+}
+.text_field {
+  color:#000000;
+  text-align:left;
+}
+.droplist {
+  color:#000000;
+  text-align:left;
+}
+.checkbox {
+  text-align:left;
+}
+.radio_button {
+  text-align:left;
+}
+.form_hint {
+  color:#999999;
+}
+.shape {
+}
+.form_disabled {
+}
+.paragraph1 {
+  text-align:left;
+}
+.box_1 {
+}
+.box_2 {
+}
+.image1 {
+  color:#000000;
+}
+.horizontal_line {
+}
+.text_button {
+  color:#02A7F0;
+}
+._contained_button {
+  color:#FFFFFF;
+}
+._menu_bg {
+}
+._helper_text {
+  font-size:12px;
+  color:rgba(0, 0, 0, 0.6);
+  text-align:left;
+}
+._label {
+}
+.label1 {
+  font-size:14px;
+  text-align:left;
+}
+.icon {
+}
+.dialog_bg {
+}
+.image2 {
+}
+.flow_shape {
+}
+.flow_shape1 {
+}
+textarea, select, input, button { outline: none; }
