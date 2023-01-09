@@ -21,7 +21,7 @@ import { CreateKundeComponent } from './create-kunde/create-kunde.component';
 import { HomeComponent } from '../home/home.component';
 // import { LiniendiagrammComponent } from './diagramme/liniendiagramm.component';
 import { type Routes } from '@angular/router';
-// import { SucheKundenComponent } from './suche-kunden/suche-kunden.component';
+import { SucheKundenComponent } from './suche-kunden/suche-kunden.component';
 // import { TortendiagrammComponent } from './diagramme/tortendiagramm.component';
 // import { UpdateKundeComponent } from './update-kunde/update-kunde.component';
 // import { canDeactivateGuard } from './create-kunde/create-deactivate.guard';
@@ -30,12 +30,11 @@ import { type Routes } from '@angular/router';
 // Route-Definitionen fuer das Feature-Modul "kunde":
 // Zuordnung von Pfaden und Komponenten mit HTML-Templates
 export const ROUTES: Routes = [
-    /*  {
+    {
         path: 'suche',
         component: SucheKundenComponent,
         title: 'Suche',
     },
-    */
     {
         path: 'create',
         component: CreateKundeComponent,
