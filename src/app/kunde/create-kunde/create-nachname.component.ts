@@ -23,7 +23,14 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import log from 'loglevel';
 
 /**
@@ -36,7 +43,18 @@ import log from 'loglevel';
     templateUrl: './create-nachname.component.html',
     styleUrls: ['./create-kunde.component.scss'],
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatTooltipModule,
+    ],
 })
 export class CreateNachnameComponent implements OnInit {
     private static readonly MIN_LENGTH = 2;

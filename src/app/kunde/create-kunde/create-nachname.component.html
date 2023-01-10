@@ -7,21 +7,11 @@
   <input
     id="nachnameInput"
     matInput
-    placeholder="Ihr Nachname"
+    placeholder="ex. Mustermann"
     autocomplete="off"
     [class.is-invalid]="nachname.invalid && nachname.touched"
     [class.is-valid]="nachname.valid && nachname.touched"
-    minlength="2"
     formControlName="nachname"
   />
   <mat-hint>Bitte den Nachnamen eingeben</mat-hint>
-  <mat-error *ngIf="nachnameInput.hasError('required')">
-    Ein Nachname ist benötigt.
-  </mat-error>
-  <mat-error *ngIf="nachnameInput.hasError('minlength')">
-    Ein Nachname ist mindestens 2 Zeichen lang.
-  </mat-error>
-  <mat-error *ngIf="nachnameInput.hasError('pattern')">
-    Ein Nachname muss mit einen Großbuchstaben beginnen.
-  </mat-error>
 </mat-form-field>
