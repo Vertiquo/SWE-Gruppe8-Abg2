@@ -22,6 +22,7 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { type KundeForm, toKunde } from './kundeForm';
 import { first, tap } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CreateBetragComponent } from './create-betrag.component';
 import { CreateEmailComponent } from './create-email.component';
@@ -66,6 +67,7 @@ import log from 'loglevel';
         CreateWaehrungComponent,
         CreatePlzComponent,
         CreateOrtComponent,
+        CommonModule,
         FormsModule,
         MatCardModule,
         MatFormFieldModule,
