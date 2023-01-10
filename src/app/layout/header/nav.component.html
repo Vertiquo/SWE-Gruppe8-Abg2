@@ -31,7 +31,7 @@
       <span class="ms-1">Suche</span>
     </a>
   </li>
-
+<!-- Original with Admin check
   <li class="nav-item" *ngIf="isAdmin$ | async">
     <a
       routerLink="/kunden/create"
@@ -42,8 +42,21 @@
       <span class="ms-1">Neuer Kunde</span>
     </a>
   </li>
-
+-->
+  <li class="nav-item">
+    <a
+      routerLink="/kunden/create"
+      class="nav-link"
+      aria-label="Neuen Kunden anlegen"
+    >
+      <i class="material-icons">menu_book</i>
+      <span class="ms-1">Neuer Kunde</span>
+    </a>
+  </li>
+<!--
   <li class="nav-item dropdown" *ngIf="isAdmin$ | async">
+-->
+  <li class="nav-item dropdown">
     <div
       class="nav-link dropdown-toggle"
       id="navbarDropdownMenuLink"
