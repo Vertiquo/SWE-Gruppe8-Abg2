@@ -16,7 +16,17 @@
  */
 
 import { Component, Output } from '@angular/core';
+import type { MatCheckboxChange} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Subject } from 'rxjs';
 import log from 'loglevel';
 
@@ -26,7 +36,19 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-suche-hasnewsletter',
     templateUrl: './suche-hasNewsletter.component.html',
-    imports: [FormsModule],
+    styleUrls: ['./suchformular.component.scss'],
+    imports: [
+        FormsModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatTooltipModule,
+    ],
     standalone: true,
 })
 export class SucheHasNewsletterComponent {
@@ -39,12 +61,12 @@ export class SucheHasNewsletterComponent {
         log.debug('SucheHasNewsletterComponent.constructor()');
     }
 
-    onChangeHasNewsletter(event: Event) {
+    onChange(event: MatCheckboxChange) {
         // https://stackoverflow.com/questions/44321326/property-value-does-not-exist-on-type-eventtarget-in-typescript
-        const { checked } = event.target as HTMLInputElement;
         log.debug(
-            `SucheHasNewsletterComponent.onChangeHasNewsletter: checked=${checked}`,
+            `SucheHasNewsletterComponent.onChange: hasNewsletter=${event.checked}`,
         );
-        this.hasNewsletter$.next(checked);
+        const value = event.checked;
+        this.hasNewsletter$.next(value);
     }
 }

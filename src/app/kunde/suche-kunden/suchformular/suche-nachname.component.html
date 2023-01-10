@@ -26,19 +26,15 @@
         https://v5.getbootstrap.com/docs/5.1/forms/overview
 -->
 
-<div class="row">
-  <label for="titelInput" class="col col-2 col-form-label gy-3"> Titel </label>
-
-  <!-- vertikale und horizontale "Gutter" als Abstaende ("gaps") zwischen den Spalten -->
-  <!-- https://v5.getbootstrap.com/docs/5.1/layout/gutters/#horizontal-gutters -->
-  <div class="col col-10 gy-3">
-    <input
-      id="titelInput"
-      placeholder="Den Titel oder einen Teil davon eingeben"
-      class="form-control"
-      [(ngModel)]="titel"
-      name="titel"
-      (blur)="onBlur()"
-    />
-  </div>
-</div>
+<mat-form-field appearance="outline" class="userInputField">
+  <mat-label for="nachnameInput">Nachname</mat-label>
+  <input
+    matInput
+    id="nachnameInput"
+    placeholder="Nachname"
+    [(ngModel)]="nachname"
+    autocomplete="off"
+    (blur)="onBlur()"
+  />
+  <mat-hint>Bitte den Nachnamen eingeben</mat-hint>
+</mat-form-field>

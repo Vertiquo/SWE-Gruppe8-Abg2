@@ -16,8 +16,17 @@
  */
 
 import { Component, Output } from '@angular/core';
+import type { MatSelectChange} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { type Familienstand } from '../../shared';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Subject } from 'rxjs';
 import log from 'loglevel';
 
@@ -27,7 +36,18 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-suche-familienstand',
     templateUrl: './suche-familienstand.component.html',
-    imports: [FormsModule],
+    styleUrls: ['./suchformular.component.scss'],
+    imports: [
+        FormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatTooltipModule,
+    ],
     standalone: true,
 })
 export class SucheFamilienstandComponent {
@@ -37,13 +57,14 @@ export class SucheFamilienstandComponent {
     protected readonly familienstand$ = new Subject<Familienstand | ''>();
 
     constructor() {
-        log.debug('SucheArtComponent.constructor()');
+        log.debug('SucheFamilienstandComponent.constructor()');
     }
 
-    onChange(event: Event) {
-        // https://stackoverflow.com/questions/44321326/property-value-does-not-exist-on-type-eventtarget-in-typescript
-        const { value } = event.target as HTMLInputElement;
-        log.debug(`SucheArtComponent.onChange: familienstand=${value}`);
+    onChange(event: MatSelectChange) {
+        log.debug(
+            `SucheFamilienstandComponent.onChange: familienstand=${this.familienstand}`,
+        );
+        const value = event.value as string;
         this.familienstand$.next(value as Familienstand | '');
     }
 }

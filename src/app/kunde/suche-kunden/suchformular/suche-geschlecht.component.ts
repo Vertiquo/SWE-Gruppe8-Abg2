@@ -16,8 +16,17 @@
  */
 
 import { Component, Output } from '@angular/core';
+import type { MatSelectChange} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { type Geschlecht } from '../../shared';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Subject } from 'rxjs';
 import log from 'loglevel';
 
@@ -27,7 +36,18 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-suche-geschlecht',
     templateUrl: './suche-geschlecht.component.html',
-    imports: [FormsModule],
+    styleUrls: ['./suchformular.component.scss'],
+    imports: [
+        FormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatTooltipModule,
+    ],
     standalone: true,
 })
 export class SucheGeschlechtComponent {
@@ -40,10 +60,9 @@ export class SucheGeschlechtComponent {
         log.debug('SucheGeschlechtComponent.constructor()');
     }
 
-    onChange(event: Event) {
-        // https://stackoverflow.com/questions/44321326/property-value-does-not-exist-on-type-eventtarget-in-typescript
-        const { value } = event.target as HTMLInputElement;
-        log.debug(`SucheGeschlechtComponent.onChange: geschlecht=${value}`);
+    onChange(event: MatSelectChange) {
+        const value = event.value as string;
+        log.debug(`SucheNachnameComponent.onChange: geschlecht=${value}`);
         this.geschlecht$.next(value as Geschlecht | '');
     }
 }

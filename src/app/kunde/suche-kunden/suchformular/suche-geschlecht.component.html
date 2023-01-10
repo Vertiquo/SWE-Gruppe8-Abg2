@@ -14,36 +14,13 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<div class="row">
-  <label class="col col-2 col-form-label gy-3">Art</label>
-  <div class="col col-10 gy-3">
-    <div class="form-check">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="druckausgabeInput"
-        [(ngModel)]="art"
-        name="art"
-        value="DRUCKAUSGABE"
-        (change)="onChange($event)"
-      />
-      <!-- margin left -->
-      <label class="radio-inline ms-1" for="druckausgabeInput">
-        Druckausgabe
-      </label>
-    </div>
-
-    <div class="form-check">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="kindleInput"
-        [(ngModel)]="art"
-        name="art"
-        value="KINDLE"
-        (change)="onChange($event)"
-      />
-      <label class="radio-inline ms-1" for="kindleInput"> Kindle </label>
-    </div>
-  </div>
-</div>
+<mat-form-field appearance="outline" class="userInputField">
+  <mat-label>Geschlecht</mat-label>
+  <mat-select [(ngModel)]="geschlecht" (selectionChange)="onChange($event)">
+    <mat-option value=""></mat-option>
+    <mat-option value="M">Männlich</mat-option>
+    <mat-option value="W">Weiblich</mat-option>
+    <mat-option value="D">Divers</mat-option>
+  </mat-select>
+  <mat-hint>Bitte wählen Sie das Geschlecht aus</mat-hint>
+</mat-form-field>
