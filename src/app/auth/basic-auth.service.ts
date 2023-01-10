@@ -56,7 +56,7 @@ export class BasicAuthService {
             return of();
         }
 
-        const loginPath = `${paths.login}/auth/rollen`;
+        const loginPath = `${paths.login}`;
         log.debug('BasicAuthService.login: loginPath=', loginPath);
 
         /* eslint-disable @typescript-eslint/naming-convention */
