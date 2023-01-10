@@ -28,7 +28,9 @@
 <div class="box-search">
   <mat-grid-list cols="1" rowHeight="100px">
     <form (submit)="onSubmit()" role="form">
-      <mat-grid-tile><h2>Eingabe der Suchkriterien</h2></mat-grid-tile>
+      <mat-grid-tile
+        ><h2 class="searchTitle">Eingabe der Suchkriterien</h2></mat-grid-tile
+      >
       <mat-grid-tile>
         <hs-suche-nachname
           (nachname$)="setNachname($event)"
@@ -46,13 +48,6 @@
           (geschlecht$)="setGeschlecht($event)"
           class="element-search"
         ></hs-suche-geschlecht>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <hs-suche-hasnewsletter
-          (hasNewsletter$)="setHasNewsletter($event)"
-          class="element-search"
-        >
-        </hs-suche-hasnewsletter>
       </mat-grid-tile>
       <mat-grid-tile>
         <button

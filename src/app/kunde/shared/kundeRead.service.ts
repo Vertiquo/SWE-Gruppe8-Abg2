@@ -36,7 +36,6 @@ export interface Suchkriterien {
     nachname: string;
     geschlecht: Geschlecht | '';
     familienstand: Familienstand | '';
-    hasNewsletter: boolean;
 }
 
 export interface KundenServer {
@@ -185,7 +184,7 @@ export class KundeReadService {
                         return of(this.#buildFindError(errResponse));
                     }),
 
-                    // entweder Observable<HttpResponse<BuchServer>> oder Observable<FindError>
+                    // entweder Observable<HttpResponse<KundeServer>> oder Observable<FindError>
                     map(restResult => this.#toKundeOrError(restResult)),
                 )
         );
@@ -227,8 +226,7 @@ export class KundeReadService {
             return httpParams;
         }
 
-        const { nachname, geschlecht, familienstand, hasNewsletter } =
-            suchkriterien;
+        const { nachname, geschlecht, familienstand } = suchkriterien;
         if (nachname !== '') {
             httpParams = httpParams.set('nachname', nachname);
         }
@@ -237,9 +235,6 @@ export class KundeReadService {
         }
         if (familienstand !== '') {
             httpParams = httpParams.set('familienstand', familienstand);
-        }
-        if (hasNewsletter) {
-            httpParams = httpParams.set('hasNewsletter', hasNewsletter);
         }
         return httpParams;
     }
