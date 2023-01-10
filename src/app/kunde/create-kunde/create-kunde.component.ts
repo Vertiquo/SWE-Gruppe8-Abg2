@@ -38,9 +38,15 @@ import { CreateOrtComponent } from './create-ort.component';
 import { CreatePlzComponent } from './create-plz.component';
 import { CreateWaehrungComponent } from './create-waehrung.component';
 import { KundeWriteService } from '../shared/kundeWrite.service';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Router } from '@angular/router';
 import { SaveError } from '../shared/errors';
 import log from 'loglevel';
@@ -69,9 +75,15 @@ import log from 'loglevel';
         CreateOrtComponent,
         CommonModule,
         FormsModule,
+        MatButtonModule,
         MatCardModule,
         MatFormFieldModule,
         MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatTooltipModule,
         ReactiveFormsModule,
     ],
     standalone: true,
