@@ -24,7 +24,6 @@ import type {
     Umsatz,
 } from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
-import { type Url } from 'node:url';
 import log from 'loglevel';
 
 interface Link {
@@ -42,7 +41,7 @@ interface Link {
  */
 export interface KundeServer extends KundeShared {
     geburtsdatum?: string;
-    homepage?: Url | undefined;
+    homepage?: string;
     geschlecht: Geschlecht;
     familienstand: Familienstand;
     interessen: string[];
@@ -99,7 +98,6 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
     } = kundeServer;
 
     let datumTemporal: Temporal.PlainDate | undefined;
-    // TODO Parsing, ob der Datum-String valide ist
     if (geburtsdatum !== undefined) {
         const [yearStr, monthStr, dayStr] = geburtsdatum
             .replace(/T.*/gu, '')
@@ -117,7 +115,7 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         kategorie,
         hasNewsletter,
         geburtsdatum: datumTemporal,
-        homepage,
+        homepage: homepage ?? 'unbekannt',
         geschlecht,
         familienstand,
         interessen,

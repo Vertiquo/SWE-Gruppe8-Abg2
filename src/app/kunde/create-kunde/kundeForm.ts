@@ -25,7 +25,6 @@ import {
     type Umsatz,
 } from '../shared/kunde';
 import { Temporal } from '@js-temporal/polyfill';
-import { type Url } from 'node:url';
 import log from 'loglevel';
 
 /**
@@ -37,7 +36,7 @@ import log from 'loglevel';
  */
 export interface KundeForm extends KundeShared {
     geburtsdatum: Date;
-    homepage: Url;
+    homepage: string;
     geschlecht: Geschlecht;
     familienstand: Familienstand;
     lesen: boolean;
@@ -87,13 +86,13 @@ export const toKunde = (kundeForm: KundeForm) => {
 
     const interessen: string[] = [];
     if (lesen) {
-        interessen.push('LESEN');
+        interessen.push('L');
     }
     if (reisen) {
-        interessen.push('REISEN');
+        interessen.push('R');
     }
     if (sport) {
-        interessen.push('SPORT');
+        interessen.push('S');
     }
 
     const datumTemporal = new Temporal.PlainDate(
@@ -101,7 +100,6 @@ export const toKunde = (kundeForm: KundeForm) => {
         geburtsdatum.getMonth() + 1,
         geburtsdatum.getDate(),
     );
-    // TODO Somehow the datumTemporal gets overwritten with the current date before being passed on as kunde.
     log.debug('toKunde: datumTemporal=', datumTemporal);
 
     const kunde: Kunde = {
