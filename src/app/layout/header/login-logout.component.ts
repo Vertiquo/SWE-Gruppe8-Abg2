@@ -37,8 +37,8 @@ import log from 'loglevel';
     selector: 'hs-login-logout',
     templateUrl: './login-logout.component.html',
     imports: [
-        AsyncPipe, 
-        FormsModule, 
+        AsyncPipe,
+        FormsModule,
         MatButtonModule,
         MatFormFieldModule,
         MatGridListModule,
@@ -46,8 +46,9 @@ import log from 'loglevel';
         MatInputModule,
         MatOptionModule,
         MatTooltipModule,
-        NgIf, 
-        ReactiveFormsModule],
+        NgIf,
+        ReactiveFormsModule,
+    ],
     standalone: true,
 })
 export class LoginLogoutComponent implements OnInit {

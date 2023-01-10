@@ -21,19 +21,19 @@
 
 // Vorsicht bei CSS-Selektoren: Namespaces, um Kollisionen zu vermeiden
 //.hs-nav {
-  //background-color: #273c84;
-  //background-image: var(--gradient);
-  //background-position: left top;
-  //background-repeat: repeat-x;
-  // display: block;
+//background-color: #273c84;
+//background-image: var(--gradient);
+//background-position: left top;
+//background-repeat: repeat-x;
+// display: block;
 //}
 
-.header{
+.header {
   background-color: #273c84;
   height: 100px;
   padding-left: 1%;
   padding-right: 1%;
-  width: 100%; 
+  width: 100%;
   display: flex;
   align-items: center;
 }
