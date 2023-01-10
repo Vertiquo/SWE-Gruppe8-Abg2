@@ -16,17 +16,26 @@
 @use '../../sass/colors';
 
 :root {
-  --background-color: var(--bluesky);
-  --gradient: url('/assets/img/gradientBlueSky.webp');
+  --background-color: #273c84;
 }
 
 // Vorsicht bei CSS-Selektoren: Namespaces, um Kollisionen zu vermeiden
-.hs-nav {
-  background-color: var(--background-color);
-  background-image: var(--gradient);
-  background-position: left top;
-  background-repeat: repeat-x;
+//.hs-nav {
+  //background-color: #273c84;
+  //background-image: var(--gradient);
+  //background-position: left top;
+  //background-repeat: repeat-x;
   // display: block;
+//}
+
+.header{
+  background-color: #273c84;
+  height: 100px;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 100%; 
+  display: flex;
+  align-items: center;
 }
 
 // wird nicht benutzt
@@ -34,4 +43,29 @@
   font-stretch: expanded;
   font-style: italic;
   font-weight: bold;
+}
+
+.navigation {
+  width: max-content;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex: 1;
+}
+
+.nav-button {
+  padding: 5px;
+}
+
+.logo {
+  padding-right: 10px;
+}
+
+.login {
+  padding: 5px;
+}
+
+.logbut {
+  padding-left: 5px;
+  padding-right: 5px;
 }
