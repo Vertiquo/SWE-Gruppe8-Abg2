@@ -15,9 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import { type Temporal } from '@js-temporal/polyfill';
-import { type Url } from 'node:url';
-
-export const MAX_RATING = 5;
 
 export type Familienstand =
     | 'GESCHIEDEN'
@@ -27,7 +24,7 @@ export type Familienstand =
 
 export type Geschlecht = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
 
-export type Interessen = 'LESEN' | 'REISEN' | 'SPORT';
+export type Interessen = 'L' | 'R' | 'S';
 
 export interface Umsatz {
     betrag: bigint;
@@ -54,11 +51,11 @@ export interface Kunde {
     id: string | undefined;
     version: number | undefined;
     nachname: string;
-    email: string | undefined;
-    kategorie: number | undefined;
+    email: string;
+    kategorie: number;
     hasNewsletter: boolean;
     geburtsdatum: Temporal.PlainDate | undefined;
-    homepage: Url | undefined;
+    homepage: string;
     geschlecht: Geschlecht;
     familienstand: Familienstand;
     interessen: string[];
@@ -75,8 +72,8 @@ export interface Kunde {
  */
 export interface KundeShared {
     nachname: string;
-    email?: string | undefined;
-    kategorie?: number | undefined;
+    email: string;
+    kategorie: number;
     hasNewsletter: boolean;
     adresse: Adresse;
 }
