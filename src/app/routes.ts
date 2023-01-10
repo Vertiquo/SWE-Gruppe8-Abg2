@@ -31,7 +31,7 @@ export const ROUTES: Routes = [
         title: 'Kunde Webserver',
     },
     {
-        path: 'kunden',
+        path: 'kunde',
         // Lazy Loading (statt Eager Loading) durch dynamische Imports (seit ES 2020)
         // loadChildren statt component wie bei '/'
         // https://angular.io/guide/lazy-loading-ngmodules

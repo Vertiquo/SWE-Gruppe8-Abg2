@@ -38,7 +38,7 @@ export const ROUTES: Routes = [
     {
         path: 'create',
         component: CreateKundeComponent,
-        title: 'Neues Kunde',
+        title: 'Neuer Kunde',
         // canMatch: [isAdminGuard],
         // canDeactivate: [canDeactivateGuard],
     },
