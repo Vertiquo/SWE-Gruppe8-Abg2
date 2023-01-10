@@ -18,95 +18,45 @@
 <!-- Template Binding durch die Direktive ngIf -->
 <!-- Eine Direktive ist eine Komponente ohne View -->
 
-<div class="card" aria-label="Gefundene Kunde" *ngIf="kunden.length">
-  <div class="card-header">
-    <i class="material-icons">folder_open</i>
-    <span class="ms-1 fw-bold">Gefundene B&uuml;cher</span>
-  </div>
-  <div class="card-body">
-    <table
-      class="table table-striped table-hover table-responsive"
-      [@easeIn]="'in'"
-    >
-      <thead class="thead-default">
-        <th>Nr.</th>
-        <th>ID</th>
-        <th>Titel</th>
-        <th>Verlag</th>
-        <th>Schlagw&ouml;rter</th>
-        <th>
-          <span class="visually-hidden">Spalte f&uuml;r Details</span>
-        </th>
-        <th *ngIf="isAdmin || (isAdmin$ | async)">
-          <span class="visually-hidden">Spalte f&uuml;r Entfernen</span>
-        </th>
-      </thead>
-      <tbody>
-        <!-- Template Binding: ngFor -->
-        <!-- Event-Binding: statt (click) auch on-click -->
-        <!-- ts als Komponente: https://stackoverflow.com/questions/34556277/angular2-table-rows-as-component -->
-        <tr
-          *ngFor="let kunde of kunden; index as idx; trackBy: trackBy"
-          [@easeOut]="'in'"
-        >
-          <td (click)="onClick(kunde)">{{ idx + 1 }}</td>
-          <td (click)="onClick(kunde)">{{ kunde.id }}</td>
-          <td (click)="onClick(kunde)">{{ kunde.nachname }}</td>
-          <td (click)="onClick(kunde)">
-            <span [ngSwitch]="kunde.geschlecht">
-              <span *ngSwitchCase="'FOO_VERLAG'">Foo Verlag</span>
-              <span *ngSwitchCase="'BAR_VERLAG'">Bar Verlag</span>
-              <span *ngSwitchDefault>unbekannt</span>
-            </span>
-          </td>
-          <td (click)="onClick(kunde)">
-            <span [ngSwitch]="kunde.hasNewsletter">
-              <span *ngSwitchCase="true">Ja</span>
-              <span *ngSwitchCase="false">Nein</span>
-            </span>
-          </td>
-          <td>
-            <!-- Pfad /:id, in kunde-routing.module.ts -->
-            <a
-              [routerLink]="['..', kunde.id]"
-              [state]="{ kunde: kunde }"
-              title="Details anzeigen"
-            >
-              <i class="material-icons">search</i>
-            </a>
-          </td>
-          <!-- implizites "unsubscribe()" durch async -->
-          <td *ngIf="isAdmin || (isAdmin$ | async)">
-            <span (click)="onRemove(kunde)" title="Entfernen">
-              <i class="material-icons">delete</i>
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="card-footer">
-    <div>
-      <i class="material-icons">info</i>
-      <span class="ms-1" [ngPlural]="kunden.length">
-        <!-- zu vergleichender Ausdruck -->
-        <ng-template ngPluralCase="=0"> Es gibt kein Kunde </ng-template>
-        <ng-template ngPluralCase="=1"> Es gibt ein Kunde </ng-template>
-        <ng-template ngPluralCase="other">
-          Es gibt {{ kunden.length }} B&uuml;cher
-        </ng-template>
-      </span>
-    </div>
+<div aria-label="Gefundene Kunden" *ngIf="kunden.length">
+  <mat-card>
+    <mat-card-title>Gefundene Kunden</mat-card-title>
+    <mat-card-content>
+      <table mat-table [dataSource]="kunden" class="mat-elevation-z8">
+        <ng-container matColumnDef="nachname">
+          <th mat-header-cell *matHeaderCellDef>Nachname</th>
+          <td mat-cell *matCellDef="let element">{{ element.nachname }}</td>
+        </ng-container>
 
-    <div>
-      <i class="material-icons">info</i>
-      <span class="ms-1">
-        Zur Anzeige der JSON-Datens&auml;tze in gefundene-kunden.html am
-        Dateiende den Kommentar beim Tag &lt;pre&gt; entfernen
-      </span>
-    </div>
-  </div>
+        <ng-container matColumnDef="familienstand">
+          <th mat-header-cell *matHeaderCellDef>Familienstand</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.familienstand }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="geschlecht">
+          <th mat-header-cell *matHeaderCellDef>Geschlecht</th>
+          <td mat-cell *matCellDef="let element">{{ element.geschlecht }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="hasNewsletter">
+          <th mat-header-cell *matHeaderCellDef>Interessen</th>
+          <td mat-cell *matCellDef="let element">{{ element.hasNewsletter }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="update">
+          <th mat-header-cell *matHeaderCellDef aria-label="update">&nbsp;</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="onClick(element)">
+              <mat-icon>create</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
 </div>
-
-<!-- Ausgabe im Webbrowser durch: -->
-<!-- <pre>{{kunden | json}}</pre> -->
