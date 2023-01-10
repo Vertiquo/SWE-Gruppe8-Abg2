@@ -19,14 +19,14 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: buchweb-pdb
+  name: kundeweb-pdb
   labels:
-    app: buchweb
-    app.kubernetes.io/name: buchweb
+    app: kundeweb
+    app.kubernetes.io/name: kundeweb
 spec:
   # minAvailable: 1
   maxUnavailable: 1
   selector:
     matchLabels:
-      app: buchweb
-      app.kubernetes.io/name: buchweb
+      app: kundeweb
+      app.kubernetes.io/name: kundeweb
