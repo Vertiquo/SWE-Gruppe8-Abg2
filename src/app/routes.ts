@@ -28,13 +28,13 @@ export const ROUTES: Routes = [
         // redirect erfordert pathMatch full
         pathMatch: 'full',
         component: HomeComponent,
-        title: 'Beispiel',
+        title: 'Kunde Webserver',
     },
     {
-        path: 'buecher',
+        path: 'kunde',
         // Lazy Loading (statt Eager Loading) durch dynamische Imports (seit ES 2020)
         // loadChildren statt component wie bei '/'
         // https://angular.io/guide/lazy-loading-ngmodules
-        loadChildren: () => import('./buch/routes').then(mod => mod.ROUTES),
+        loadChildren: () => import('./kunde/routes').then(mod => mod.ROUTES),
     },
 ];

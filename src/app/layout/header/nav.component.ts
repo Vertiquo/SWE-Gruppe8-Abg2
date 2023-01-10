@@ -21,6 +21,7 @@ import { Component, type OnInit } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { LoginLogoutComponent } from './login-logout.component';
+import { MatButtonModule } from '@angular/material/button';
 import log from 'loglevel';
 import { tap } from 'rxjs/operators';
 
@@ -30,9 +31,11 @@ import { tap } from 'rxjs/operators';
 @Component({
     selector: 'hs-nav',
     templateUrl: './nav.component.html',
+    styleUrls: ['./header.component.scss'],
     imports: [
         AsyncPipe,
         LoginLogoutComponent,
+        MatButtonModule,
         NgIf,
         RouterLinkActive,
         RouterLinkWithHref,

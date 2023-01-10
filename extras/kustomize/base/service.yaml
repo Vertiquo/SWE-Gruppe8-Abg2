@@ -17,12 +17,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: buchweb
+  name: kundeweb
   labels:
-    app: buchweb
+    app: kundeweb
 spec:
   selector:
-    app: buchweb
+    app: kundeweb
   ports:
     # - port: 443
     #   name: https

@@ -29,7 +29,7 @@
     "lighthouse:hskampus": "lighthouse http://www.iwi.h-ka.de/hskampus-web/ --view --output-path=temp/app.hskampus.de.html --chrome-flags='--disable-web-security'",
     "local-web-server": "ws",
     "prepack": "npm run build:dev",
-    "pack": "pack build juergenzimmermann/buchweb:1.0.0 --builder paketobuildpacks/builder:base",
+    "pack": "pack build juergenzimmermann/kundeweb:1.0.0 --builder paketobuildpacks/builder:base",
     "prettier": "prettier --write src/**/*.ts src/**/*.html src/**/*.scss",
     "presource-map-explorer": "npm run build -- --source-map && del dist/acme/ngsw-worker.js && del dist/acme/safety-worker.js && del dist/acme/worker-basic.min.js",
     "source-map-explorer": "source-map-explorer dist/acme/main.*.js dist/acme/main.*.js.map --html source-map-explorer.html --only-mapped",

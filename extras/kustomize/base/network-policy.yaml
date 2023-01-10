@@ -18,16 +18,16 @@ apiVersion: networking.k8s.io/v1
 # https://kubernetes.io/docs/concepts/services-networking/network-policies
 kind: NetworkPolicy
 metadata:
-  name: buchweb
+  name: kundeweb
 spec:
   podSelector:
     matchLabels:
-      app: buchweb
-      app.kubernetes.io/name: buchweb
+      app: kundeweb
+      app.kubernetes.io/name: kundeweb
   policyTypes: [Ingress, Egress]
   egress:
     - ports:
-        # buch
-        - port: 3000
+        # kunde
+        - port: 8080
           protocol: TCP
   ingress: []

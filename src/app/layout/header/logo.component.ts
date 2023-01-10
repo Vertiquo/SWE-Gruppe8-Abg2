@@ -25,6 +25,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-logo',
     templateUrl: './logo.component.html',
+    styleUrls: ['./header.component.scss'],
     imports: [RouterLinkWithHref],
     standalone: true,
 })

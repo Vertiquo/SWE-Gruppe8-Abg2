@@ -17,26 +17,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: buchweb
+  name: kundeweb
   labels:
-    app: buchweb
+    app: kundeweb
 spec:
   selector:
     matchLabels:
-      app: buchweb
+      app: kundeweb
   replicas: 1
   template:
     metadata:
       labels:
-        app: buchweb
+        app: kundeweb
     spec:
-      serviceAccountName: acme-buchweb
+      serviceAccountName: acme-kundeweb
       containers:
-        - image: docker.io/juergenzimmermann/buchweb:1.0.0
-          name: buchweb
+        - image: docker.io/juergenzimmermann/kundeweb:1.0.0
+          name: kundeweb
           envFrom:
             - configMapRef:
-                name: buchweb-env
+                name: kundeweb-env
           ports:
             # - containerPort: 443
             #   name: https
