@@ -25,6 +25,7 @@ import {
 } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
 import log from 'loglevel';
 
 /**
@@ -41,6 +42,7 @@ import log from 'loglevel';
         ReactiveFormsModule,
         MatDatepickerModule,
         MatFormFieldModule,
+        MatNativeDateModule,
     ],
 })
 export class CreateGeburtsdatumComponent implements OnInit {
