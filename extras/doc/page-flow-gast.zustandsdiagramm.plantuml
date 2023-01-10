@@ -28,26 +28,26 @@ state index.html {
 
     [*] --> [*]: Login
 
-    state SucheBuecher {
+    state SucheKunden {
         [*] --> Suchformular: Suchkriterien
         Suchformular --> Waiting: Button "Suchen"
         state SuchergebnisChoice <<choice>>
         Waiting --> SuchergebnisChoice: Suchergebnis eingetroffen
 
         state Suchergebnis {
-            SuchergebnisChoice --> GefundeneBuecher: mind. 1 Buch
-            SuchergebnisChoice --> ErrorMessage: kein Buch
+            SuchergebnisChoice --> GefundeneKunden: mind. 1 Kunde
+            SuchergebnisChoice --> ErrorMessage: kein Kunde
 
-            ErrorMessage -right[hidden]-> GefundeneBuecher
+            ErrorMessage -right[hidden]-> GefundeneKunden
         }
     }
 
-    [*] -down-> SucheBuecher: Menüpunkt "Suche"
-    GefundeneBuecher -right-> DetailsBuch: Link anklicken
+    [*] -down-> SucheKunden: Menüpunkt "Suche"
+    GefundeneKunden -right-> DetailsKunde: Link anklicken
     DetailsBuch -up-> [*]
 
-    Suchergebnis -right[hidden]-> DetailsBuch
-    SucheBuecher -right[hidden]-> DetailsBuch
+    Suchergebnis -right[hidden]-> DetailsKunde
+    SucheKunden -right[hidden]-> DetailsKunde
 }
 
 footer (c) Jürgen Zimmermann

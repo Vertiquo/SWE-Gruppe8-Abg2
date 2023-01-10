@@ -14,25 +14,28 @@
 ' along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ' Preview durch <Alt>d
-' https://plantuml.com/de/activity-diagram-beta
-' https://plantuml.com/de/guide
 
-@startuml Datenfluss
+@startuml DetailsKunde
 
-start
+'top to bottom direction
 
-:Suchformular;
--> Suchkriterien;
-:SucheBuecher;
--> Liste gefundener Kunden;
-:Suchergebnis;
+rectangle DetailsKunde
+rectangle Waiting
+rectangle DetailsBreadcrumbs
+rectangle DetailsStammdaten
+rectangle DetailsSchlagwoerter
+rectangle DetailsBearbeiten
 
-if (mind. 1 Kunde gefunden?) then (ja)
-  :GefundeneKunden;
-else (nein)
-  :ErrorMessage;
-endif
+DetailsKunde --> Waiting
+DetailsKunde --> DetailsBreadcrumbs
+DetailsKunde --> DetailsStammdaten
+DetailsKunde --> DetailsSchlagwoerter
+DetailsKunde --> DetailsBearbeiten
 
-end
+rectangle DetailsNachname
+rectangle DetailsEmail
+
+DetailsStammdaten --> DetailsNachname
+DetailsStammdaten --> DetailsEmail
 
 @enduml

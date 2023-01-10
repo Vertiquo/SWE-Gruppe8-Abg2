@@ -15,29 +15,31 @@
 
 ' Preview durch <Alt>d
 
-@startuml DetailsBuch
+@startuml SucheKunde
 
 'top to bottom direction
 
-rectangle DetailsBuch
+rectangle SucheKunde
+rectangle Suchformular
 rectangle Waiting
-rectangle DetailsBreadcrumbs
-rectangle DetailsStammdaten
-rectangle DetailsSchlagwoerter
-rectangle DetailsBearbeiten
+rectangle Suchergebnis
 
-DetailsBuch --> Waiting
-DetailsBuch --> DetailsBreadcrumbs
-DetailsBuch --> DetailsStammdaten
-DetailsBuch --> DetailsSchlagwoerter
-DetailsBuch --> DetailsBearbeiten
+SucheKunde --> Suchformular
+SucheKunde --> Waiting
+SucheKunde --> Suchergebnis
 
-rectangle DetailsTitel
-rectangle DetailsVerlag
-rectangle DetailsIsbn
+rectangle SucheNachname
+rectangle SucheGeschlecht
+rectangle SucheFamilienstand
 
-DetailsStammdaten --> DetailsTitel
-DetailsStammdaten --> DetailsVerlag
-DetailsStammdaten --> DetailsIsbn
+Suchformular --> SucheNachname
+Suchformular --> SucheGeschlecht
+Suchformular --> SucheFamilienstand
+
+rectangle ErrorMessage
+rectangle GefundeneKunden
+
+Suchergebnis --> ErrorMessage
+Suchergebnis --> GefundeneKunden
 
 @enduml

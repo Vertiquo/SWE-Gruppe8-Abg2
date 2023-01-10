@@ -28,34 +28,34 @@ state index.html {
 
     [*] --> Home: Logout
 
-    state SucheBuecher {
+    state SucheKunden {
         [*] --> Suchformular: Suchkriterien eingeben
         Suchformular --> Waiting: Button "Suchen"
         state SuchergebnisChoice <<choice>>
         Waiting --> SuchergebnisChoice: Suchergebnis eingetroffen
 
         state Suchergebnis {
-            SuchergebnisChoice --> GefundeneBuecher: mind. 1 Buch\ngefunden
-            SuchergebnisChoice --> ErrorMessage: kein Buch\ngefunden
+            SuchergebnisChoice --> GefundeneKunden: mind. 1 Kunde\ngefunden
+            SuchergebnisChoice --> ErrorMessage: kein Kunde\ngefunden
 
-            ErrorMessage -right[hidden]-> GefundeneBuecher
+            ErrorMessage -right[hidden]-> GefundeneKunden
         }
     }
-    [*] -down-> SucheBuecher: Menüpunkt "Suche"
-    GefundeneBuecher -right-> DetailsBuch: Link anklicken
+    [*] -down-> SucheKunden: Menüpunkt "Suche"
+    GefundeneKunden -right-> DetailsKunde: Link anklicken
 
-    [*] -down-> CreateBuch: Menüpunkt "Neues Buch"
-    SucheBuecher -right[hidden]-> CreateBuch
+    [*] -down-> CreateKunde: Menüpunkt "Neuer Kunde"
+    SucheKunden -right[hidden]-> CreateKunde
     state CreateChoice <<choice>>
-    CreateBuch --> CreateChoice: Button "OK"
-    CreateChoice --> CreateBuch: fehlerhafte Daten
-    CreateChoice --> DetailsBuch: korrekte Daten
+    CreateKunde --> CreateChoice: Button "OK"
+    CreateChoice --> CreateKunde: fehlerhafte Daten
+    CreateChoice --> DetailsKunde: korrekte Daten
 
-    DetailsBuch -right-> UpdateBuch: Button "Bearbeiten"
+    DetailsKunde -right-> UpdateKunde: Button "Bearbeiten"
     state UpdateChoice <<choice>>
-    UpdateBuch -up-> UpdateChoice: Button "OK"
-    UpdateChoice --> UpdateBuch: fehlerhafte Daten
-    UpdateChoice --> DetailsBuch: korrekte Daten
+    UpdateKunde -up-> UpdateChoice: Button "OK"
+    UpdateChoice --> UpdateKunde: fehlerhafte Daten
+    UpdateChoice --> DetailsKunde: korrekte Daten
 }
 
 footer (c) Jürgen Zimmermann
