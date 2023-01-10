@@ -36,6 +36,10 @@ import { first, tap } from 'rxjs/operators';
 import { type Kunde } from '../../shared/kunde';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { KundeWriteService } from '../../shared/kundeWrite.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 import { RemoveError } from '../../shared/errors';
 import { Subject } from 'rxjs';
 import log from 'loglevel';
@@ -51,6 +55,10 @@ import log from 'loglevel';
     animations: [easeIn, easeOut],
     imports: [
         AsyncPipe,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        MatTableModule,
         NgForOf,
         NgIf,
         NgPlural,
@@ -75,6 +83,14 @@ export class GefundeneKundenComponent implements OnInit {
 
     // nachtraegliches Einloggen mit der Rolle "admin" beobachten
     protected isAdmin$ = new Subject<boolean>();
+
+    displayedColumns: string[] = [
+        'nachname',
+        'familienstand',
+        'geschlecht',
+        'hasNewsletter',
+        'update',
+    ];
 
     // Parameter Properties (Empfehlung: Konstruktor nur fuer DI)
     constructor(

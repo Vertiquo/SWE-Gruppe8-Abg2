@@ -16,6 +16,9 @@
  */
 
 import { Component, Input, type OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import log from 'loglevel';
 
 /**
@@ -24,6 +27,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-details-nachname',
     templateUrl: './details-nachname.component.html',
+    imports: [MatButtonModule, MatCardModule, MatFormFieldModule],
     standalone: true,
 })
 export class DetailsNachnameComponent implements OnInit {

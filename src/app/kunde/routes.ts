@@ -17,7 +17,7 @@
 
 // import { BalkendiagrammComponent } from './diagramme/balkendiagramm.component';
 import { CreateKundeComponent } from './create-kunde/create-kunde.component';
-// import { DetailsKundeComponent } from './details-kunde/details-kunde.component';
+import { DetailsKundeComponent } from './details-kunde/details-kunde.component';
 import { HomeComponent } from '../home/home.component';
 // import { LiniendiagrammComponent } from './diagramme/liniendiagramm.component';
 import { type Routes } from '@angular/router';
@@ -94,9 +94,8 @@ export const ROUTES: Routes = [
         component: HomeComponent,
         title: 'Beispiel',
     },
-    /*  {
+    {
         path: ':id',
         component: DetailsKundeComponent,
     },
-    */
 ];
