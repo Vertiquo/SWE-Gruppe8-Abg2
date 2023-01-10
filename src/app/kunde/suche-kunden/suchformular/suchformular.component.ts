@@ -18,12 +18,18 @@
 import { Component, Output } from '@angular/core';
 import { type Familienstand, type Geschlecht } from '../../shared/kunde';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Subject } from 'rxjs';
 import { SucheFamilienstandComponent } from './suche-familienstand.component';
 import { SucheGeschlechtComponent } from './suche-geschlecht.component';
 import { SucheHasNewsletterComponent } from './suche-hasNewsletter.component';
 import { SucheNachnameComponent } from './suche-nachname.component';
-import { SucheVerlagComponent } from './suche-verlag.component';
 import { type Suchkriterien } from '../../shared/kundeRead.service';
 import { fadeIn } from '../../../shared/animations';
 import log from 'loglevel';
@@ -34,15 +40,22 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-suchformular',
     templateUrl: './suchformular.component.html',
+    styleUrls: ['./suchformular.component.scss'],
     animations: [fadeIn],
     imports: [
         FormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatTooltipModule,
         ReactiveFormsModule,
         SucheNachnameComponent,
         SucheGeschlechtComponent,
         SucheFamilienstandComponent,
         SucheHasNewsletterComponent,
-        SucheVerlagComponent,
     ],
     standalone: true,
 })

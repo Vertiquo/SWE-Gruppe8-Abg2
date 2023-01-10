@@ -29,6 +29,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-suchergebnis',
     templateUrl: './suchergebnis.component.html',
+    styleUrls: ['./suchergebnis.component.scss'],
     imports: [ErrorMessageComponent, NgIf, GefundeneKundenComponent],
     standalone: true,
 })
