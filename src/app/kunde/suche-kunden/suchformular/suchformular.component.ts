@@ -28,7 +28,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { Subject } from 'rxjs';
 import { SucheFamilienstandComponent } from './suche-familienstand.component';
 import { SucheGeschlechtComponent } from './suche-geschlecht.component';
-import { SucheHasNewsletterComponent } from './suche-hasNewsletter.component';
 import { SucheNachnameComponent } from './suche-nachname.component';
 import { type Suchkriterien } from '../../shared/kundeRead.service';
 import { fadeIn } from '../../../shared/animations';
@@ -55,7 +54,6 @@ import log from 'loglevel';
         SucheNachnameComponent,
         SucheGeschlechtComponent,
         SucheFamilienstandComponent,
-        SucheHasNewsletterComponent,
     ],
     standalone: true,
 })
@@ -74,8 +72,6 @@ export class SuchformularComponent {
     #geschlecht: Geschlecht | '' = '';
 
     #familienstand: Familienstand | '' = '';
-
-    #hasNewsletter = false;
 
     // DI: Constructor Injection (React hat uebrigens keine DI)
     // Empfehlung: Konstruktor nur fuer DI
@@ -98,11 +94,6 @@ export class SuchformularComponent {
         this.#familienstand = familienstand;
     }
 
-    setHasNewsletter(isChecked: boolean) {
-        log.debug('SuchformularComponent.setHasNewsletter', isChecked);
-        this.#hasNewsletter = isChecked;
-    }
-
     /**
      * Suche nach Kunden, die den spezfizierten Suchkriterien entsprechen
      */
@@ -112,14 +103,12 @@ export class SuchformularComponent {
             this.#nachname,
             this.#geschlecht,
             this.#familienstand,
-            this.#hasNewsletter,
         );
 
         this.suchkriterien$.next({
             nachname: this.#nachname,
             geschlecht: this.#geschlecht,
             familienstand: this.#familienstand,
-            hasNewsletter: this.#hasNewsletter,
         });
     }
 }
