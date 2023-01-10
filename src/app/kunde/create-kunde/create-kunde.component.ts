@@ -40,6 +40,7 @@ import { CreateWaehrungComponent } from './create-waehrung.component';
 import { KundeWriteService } from '../shared/kundeWrite.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -77,6 +78,7 @@ import log from 'loglevel';
         FormsModule,
         MatButtonModule,
         MatCardModule,
+        MatCheckboxModule,
         MatFormFieldModule,
         MatGridListModule,
         MatIconModule,

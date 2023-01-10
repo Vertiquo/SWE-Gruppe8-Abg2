@@ -23,6 +23,7 @@ import {
     ReactiveFormsModule,
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -44,6 +45,7 @@ import log from 'loglevel';
         FormsModule,
         ReactiveFormsModule,
         MatButtonModule,
+        MatCheckboxModule,
         MatFormFieldModule,
         MatGridListModule,
         MatIconModule,
