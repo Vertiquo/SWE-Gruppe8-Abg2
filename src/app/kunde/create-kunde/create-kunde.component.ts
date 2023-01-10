@@ -47,6 +47,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Router } from '@angular/router';
 import { SaveError } from '../shared/errors';
@@ -85,6 +86,7 @@ import log from 'loglevel';
         MatInputModule,
         MatOptionModule,
         MatSelectModule,
+        MatSlideToggleModule,
         MatTooltipModule,
         ReactiveFormsModule,
     ],

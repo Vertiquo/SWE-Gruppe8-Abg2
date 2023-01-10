@@ -30,6 +30,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import log from 'loglevel';
 
@@ -51,6 +52,7 @@ import log from 'loglevel';
         MatIconModule,
         MatInputModule,
         MatOptionModule,
+        MatSlideToggleModule,
         MatTooltipModule,
     ],
 })
