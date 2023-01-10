@@ -1,3 +1,5 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable array-bracket-newline */
 /*
  * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
@@ -63,7 +65,9 @@ export class CreateWaehrungComponent implements OnInit {
     //    serverseitig mittels Request/Response
     //    clientseitig bei den Ereignissen keyup, change, blur, ...
     // Ein Endbenutzer bewirkt staendig einen neuen Fehlerstatus
-    readonly waehrung = new FormControl(undefined, [Validators.required]);
+    protected readonly waehrung = new FormControl(undefined, [
+        Validators.required,
+    ]);
 
     ngOnInit() {
         log.debug('CreateWaehrungComponent.ngOnInit');

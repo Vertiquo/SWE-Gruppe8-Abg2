@@ -65,7 +65,7 @@ export class CreateOrtComponent implements OnInit {
     //    serverseitig mittels Request/Response
     //    clientseitig bei den Ereignissen keyup, change, blur, ...
     // Ein Endbenutzer bewirkt staendig einen neuen Fehlerstatus
-    readonly ort = new FormControl(undefined, [
+    protected readonly ort = new FormControl(undefined, [
         Validators.required,
         Validators.minLength(CreateOrtComponent.MIN_LENGTH),
         Validators.pattern(/^\w/u),
