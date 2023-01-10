@@ -17,6 +17,7 @@
 
 import { Component, Input, type OnInit } from '@angular/core';
 import { DetailsEmailComponent } from './details-email.component';
+import { DetailsHomepageComponent } from './details-homepage.component';
 import { DetailsNachnameComponent } from './details-nachname.component';
 import { type Kunde } from '../../shared/kunde';
 import { NgIf } from '@angular/common';
@@ -28,7 +29,12 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-details-stammdaten',
     templateUrl: './details-stammdaten.component.html',
-    imports: [DetailsEmailComponent, DetailsNachnameComponent, NgIf],
+    imports: [
+        DetailsEmailComponent,
+        DetailsHomepageComponent,
+        DetailsNachnameComponent,
+        NgIf,
+    ],
     standalone: true,
 })
 export class DetailsStammdatenComponent implements OnInit {

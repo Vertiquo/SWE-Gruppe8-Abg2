@@ -22,19 +22,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r den CSS-Selektor <code>hs-details-email</code>
+ * Komponente f&uuml;r den CSS-Selektor <code>hs-details-waehrung</code>
  */
 @Component({
-    selector: 'hs-details-email',
-    templateUrl: './details-email.component.html',
+    selector: 'hs-details-waehrung',
+    templateUrl: './details-waehrung.component.html',
     imports: [MatButtonModule, MatCardModule, MatFormFieldModule],
     standalone: true,
 })
-export class DetailsEmailComponent implements OnInit {
+export class DetailsWaehrungComponent implements OnInit {
     @Input()
-    email!: string;
+    waehrung!: string;
 
     ngOnInit() {
-        log.debug('DetailsEmailComponent.email=', this.email);
+        log.debug('DetailsWaehrungComponent.waehrung=', this.waehrung);
     }
 }
