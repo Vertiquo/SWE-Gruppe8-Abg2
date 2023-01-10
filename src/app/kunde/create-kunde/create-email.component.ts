@@ -1,6 +1,4 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable regexp/no-invalid-regexp */
-/* eslint-disable no-useless-escape */
 /*
  * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
