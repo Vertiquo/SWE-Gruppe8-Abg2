@@ -23,7 +23,13 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import log from 'loglevel';
 
 /**
@@ -32,7 +38,17 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-update-nachname',
     templateUrl: './update-nachname.component.html',
-    imports: [FormsModule, NgIf, ReactiveFormsModule],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatTooltipModule,
+    ],
     standalone: true,
 })
 export class UpdateNachnameComponent implements OnInit {
@@ -40,7 +56,7 @@ export class UpdateNachnameComponent implements OnInit {
 
     // <hs-update-nachname [form]="form" [currentValue]="...">
     @Input()
-    form!: FormGroup;
+    updateForm!: FormGroup;
 
     @Input()
     currentValue!: string;
@@ -58,6 +74,6 @@ export class UpdateNachnameComponent implements OnInit {
             Validators.minLength(UpdateNachnameComponent.MIN_LENGTH),
             Validators.pattern(/^\w/u),
         ]);
-        this.form.addControl('nachname', this.nachname);
+        this.updateForm.addControl('nachname', this.nachname);
     }
 }

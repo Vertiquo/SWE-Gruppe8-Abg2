@@ -55,7 +55,7 @@ import log from 'loglevel';
 export class UpdateKundeComponent implements OnInit {
     protected kunde: Kunde | undefined;
 
-    protected readonly form = new FormGroup({});
+    protected readonly updateForm = new FormGroup({});
 
     protected errorMsg: string | undefined;
 
@@ -94,16 +94,16 @@ export class UpdateKundeComponent implements OnInit {
      * zur&uuml;ckschreiben.
      */
     onSubmit() {
-        if (this.form.pristine || this.kunde === undefined) {
+        if (this.updateForm.pristine || this.kunde === undefined) {
             log.debug('UpdateKundeComponent.onSubmit: keine Aenderungen');
             return;
         }
 
-        const { nachname } = this.form.value as { nachname: string };
-        const { familienstand } = this.form.value as {
+        const { nachname } = this.updateForm.value as { nachname: string };
+        const { familienstand } = this.updateForm.value as {
             familienstand: Familienstand;
         };
-        const { geschlecht } = this.form.value as {
+        const { geschlecht } = this.updateForm.value as {
             geschlecht: Geschlecht;
         };
 
@@ -220,7 +220,7 @@ export class UpdateKundeComponent implements OnInit {
             return;
         }
 
-        // Gefundenes Kunde als NavigationExtras im Router puffern
+        // Gefundenen Kunden als NavigationExtras im Router puffern
         const state = { kunde };
         await this.router.navigate([`/kunden/${kunde.id}`], { state });
     }
