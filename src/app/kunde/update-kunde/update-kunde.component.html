@@ -37,11 +37,13 @@
     <form [formGroup]="form" role="form" (submit)="onSubmit()">
       <hs-update-nachname [form]="form" [currentValue]="kunde.nachname">
       </hs-update-nachname>
-      <hs-update-familienstand [form]="form" [currentValue]="kunde.familienstand"> </hs-update-familienstand>
+      <hs-update-familienstand
+        [form]="form"
+        [currentValue]="kunde.familienstand"
+      >
+      </hs-update-familienstand>
       <hs-update-geschlecht [form]="form" [currentValue]="kunde.geschlecht">
       </hs-update-geschlecht>
-      <hs-update-interessen [form]="form" [currentValue]="kunde.interessen">
-      </hs-update-interessen>
 
       <div class="row">
         <div class="col offset-2 gy-3">
