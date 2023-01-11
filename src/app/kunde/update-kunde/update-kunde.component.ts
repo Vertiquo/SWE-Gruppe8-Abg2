@@ -33,7 +33,6 @@ import { NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { UpdateFamilienstandComponent } from './update-familienstand.component';
 import { UpdateGeschlechtComponent } from './update-geschlecht.component';
-import { UpdateInteressenComponent } from './update-interessen.component';
 import { UpdateNachnameComponent } from './update-nachname.component';
 import log from 'loglevel';
 
@@ -49,7 +48,6 @@ import log from 'loglevel';
         ReactiveFormsModule,
         UpdateFamilienstandComponent,
         UpdateGeschlechtComponent,
-        UpdateInteressenComponent,
         UpdateNachnameComponent,
     ],
     standalone: true,
