@@ -30,6 +30,7 @@ import { ErrorMessageComponent } from '../../shared/error-message.component';
 import { KundeReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { KundeWriteService } from '../shared/kundeWrite.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -40,6 +41,7 @@ import { NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { UpdateFamilienstandComponent } from './update-familienstand.component';
 import { UpdateGeschlechtComponent } from './update-geschlecht.component';
+import { UpdateHomepageComponent } from './update-homepage.component';
 import { UpdateNachnameComponent } from './update-nachname.component';
 import log from 'loglevel';
 
@@ -54,6 +56,7 @@ import log from 'loglevel';
         FormsModule,
         ErrorMessageComponent,
         MatButtonModule,
+        MatCardModule,
         MatFormFieldModule,
         MatGridListModule,
         MatIconModule,
@@ -63,6 +66,7 @@ import log from 'loglevel';
         NgIf,
         ReactiveFormsModule,
         UpdateFamilienstandComponent,
+        UpdateHomepageComponent,
         UpdateGeschlechtComponent,
         UpdateNachnameComponent,
     ],
@@ -72,6 +76,8 @@ export class UpdateKundeComponent implements OnInit {
     protected kunde: Kunde | undefined;
 
     protected readonly updateForm = new FormGroup({});
+
+    showWarning = false;
 
     protected errorMsg: string | undefined;
 
@@ -116,6 +122,7 @@ export class UpdateKundeComponent implements OnInit {
         }
 
         const { nachname } = this.updateForm.value as { nachname: string };
+        const { homepage } = this.updateForm.value as { homepage: string };
         const { familienstand } = this.updateForm.value as {
             familienstand: Familienstand;
         };
@@ -127,6 +134,7 @@ export class UpdateKundeComponent implements OnInit {
 
         // datum, preis und rabatt koennen im Formular nicht geaendert werden
         kunde.nachname = nachname;
+        kunde.homepage = homepage;
         kunde.geschlecht = geschlecht;
         kunde.familienstand = familienstand;
         log.debug('UpdateKundeComponent.onSubmit: kunde=', kunde);

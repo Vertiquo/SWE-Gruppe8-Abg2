@@ -1,3 +1,11 @@
+<div class="warning-box" *ngIf="showWarning">
+  <mat-card>
+    <mat-card-title> Warnung </mat-card-title>
+    <br />
+    Wenn Sie diese Seite verlassen, gehen Ihre Daten verloren.
+  </mat-card>
+</div>
+
 <div class="box-update">
   <mat-grid-list cols="1" rowHeight="100px">
     <form [formGroup]="updateForm" role="form" (submit)="onSubmit()">
@@ -9,6 +17,12 @@
         class="element-update"
         [updateForm]="updateForm"
         ></hs-update-nachname>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <hs-update-homepage 
+        class="element-update"
+        [updateForm]="updateForm"
+        ></hs-update-homepage>
       </mat-grid-tile>
       <mat-grid-tile>
         <hs-update-geschlecht 
