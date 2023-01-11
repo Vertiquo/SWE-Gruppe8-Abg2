@@ -31,7 +31,7 @@
       Suche
     </button>
   </div>
-  <div class="nav-button">
+  <div class="nav-button" *ngIf="isAdmin$ | async">
     <button
       mat-flat-button
       color="primary"
