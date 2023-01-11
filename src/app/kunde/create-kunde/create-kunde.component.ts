@@ -126,6 +126,8 @@ export class CreateKundeComponent {
         //    valid/invalid     fuer valide Werte
         //    dirty/pristine    falls der Wert geaendert wurde
 
+        log.debug(this.createForm.value);
+
         if (this.createForm.invalid) {
             log.debug(
                 'CreateKundeComponent.onSave: Validierungsfehler',
