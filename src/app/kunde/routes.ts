@@ -1,3 +1,5 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable sort-imports */
 /*
  * Copyright (C) 2016 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
@@ -16,17 +18,17 @@
  */
 
 // import { BalkendiagrammComponent } from './diagramme/balkendiagramm.component';
+import { type Routes } from '@angular/router';
+import { canDeactivateGuard } from './create-kunde/create-deactivate.guard';
 import { CreateKundeComponent } from './create-kunde/create-kunde.component';
 import { DetailsKundeComponent } from './details-kunde/details-kunde.component';
-import { DiagrammKundeComponent } from './diagramm-kunde/diagramm-kunde.component';
 import { HomeComponent } from '../home/home.component';
+import { isAdminGuard } from '../auth/isAdmin.guard';
 // import { LiniendiagrammComponent } from './diagramme/liniendiagramm.component';
-import { type Routes } from '@angular/router';
 import { SucheKundenComponent } from './suche-kunden/suche-kunden.component';
 // import { TortendiagrammComponent } from './diagramme/tortendiagramm.component';
 // import { UpdateKundeComponent } from './update-kunde/update-kunde.component';
-import { canDeactivateGuard } from './create-kunde/create-deactivate.guard';
-import { isAdminGuard } from '../auth/isAdmin.guard';
+import { TortendiagrammComponent } from './diagramm-kunde/tortendiagramm.component';
 
 // Route-Definitionen fuer das Feature-Modul "kunde":
 // Zuordnung von Pfaden und Komponenten mit HTML-Templates
@@ -50,8 +52,9 @@ export const ROUTES: Routes = [
     },
     {
         path: 'diagramm',
-        component: DiagrammKundeComponent,
+        component: TortendiagrammComponent,
         title: 'Diagramm',
+        canMatch: [isAdminGuard],
     },
     /*  {
         path: 'balkendiagramm',
