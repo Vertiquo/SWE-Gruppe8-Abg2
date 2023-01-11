@@ -39,21 +39,19 @@
           Stammdaten
         </a>
       </li>
-      <!--
-      <li class="nav-item" *ngIf="kunde.schlagwoerter.length > 0">
+      <li class="nav-item">
         <a
           class="nav-link"
-          id="schlagwoerter-tab"
-          href="#schlagwoerter"
+          id="adresse-tab"
+          href="#adresse"
           data-bs-toggle="tab"
           role="tab"
-          aria-controls="schlagwoerter"
+          aria-controls="adresse"
           aria-expanded="true"
         >
-          Schlagw&ouml;rter
+          Adresse
         </a>
       </li>
-      -->
     </ul>
 
     <div class="tab-content" id="kundeContent">
@@ -68,22 +66,20 @@
         </div>
       </div>
 
-      <!--<div
+      <div
         class="tab-pane fade"
-        id="schlagwoerter"
+        id="adresse"
         role="tabpanel"
-        aria-labelledby="schlagwoerter-tab"
-        *ngIf="kunde.schlagwoerter.length > 0"
+        aria-labelledby="adresse-tab"
       >
         <div class="mt-2 ms-2">
-          <hs-details-schlagwoerter [values]="kunde.schlagwoerter">
-          </hs-details-schlagwoerter>
+          <hs-details-adresse [kunde]="kunde"> </hs-details-adresse>
         </div>
-      </div>-->
+      </div>
     </div>
 
-    <hs-details-bearbeiten [id]="kunde.id" *ngIf="isAdmin">
-    </hs-details-bearbeiten>
+    <!-- <hs-details-bearbeiten [id]="kunde.id" *ngIf="isAdmin"> -->
+    <hs-details-bearbeiten [id]="kunde.id"> </hs-details-bearbeiten>
   </section>
 
   <ng-template #showErrorMsg>

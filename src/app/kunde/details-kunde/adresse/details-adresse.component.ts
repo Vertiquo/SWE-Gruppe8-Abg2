@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 - present Juergen Zimmermann, Hochschule Karlsruhe
+ * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,33 +16,28 @@
  */
 
 import { Component, Input, type OnInit } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTableModule } from '@angular/material/table';
-import { RouterLinkWithHref } from '@angular/router';
+import { DetailsOrtComponent } from './details-ort.component';
+import { DetailsPlzComponent } from './details-plz.component';
+import { type Kunde } from '../../shared';
+import { NgIf } from '@angular/common';
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r den CSS-Selektor <code>hs-details-bearbeiten</code>
+ * Komponente f&uuml;r den CSS-Selektor <code>hs-details-adresse</code>
  */
 @Component({
-    selector: 'hs-details-bearbeiten',
-    templateUrl: './details-bearbeiten.component.html',
-    imports: [
-        MatButtonModule,
-        MatCardModule,
-        MatIconModule,
-        MatTableModule,
-        RouterLinkWithHref,
-    ],
+    selector: 'hs-details-adresse',
+    templateUrl: './details-adresse.component.html',
+    imports: [DetailsOrtComponent, DetailsPlzComponent, NgIf],
     standalone: true,
 })
-export class DetailsBearbeitenComponent implements OnInit {
+export class DetailsAdresseComponent implements OnInit {
+    // <hs-adresse [values]="kunde.adresse">
+    // Decorator fuer ein Attribut. Siehe InputMetadata
     @Input()
-    id: string | undefined;
+    kunde!: Kunde;
 
     ngOnInit() {
-        log.debug('DetailsBearbeitenComponent.id=', this.id);
+        log.debug('DetailsAdresseComponent.values=', this.kunde.adresse);
     }
 }

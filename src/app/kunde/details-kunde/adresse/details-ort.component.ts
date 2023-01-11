@@ -16,30 +16,25 @@
  */
 
 import { Component, Input, type OnInit } from '@angular/core';
-import {
-    NgForOf,
-    NgSwitch,
-    NgSwitchCase,
-    NgSwitchDefault,
-} from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r den CSS-Selektor <code>hs-details-schlagwoerter</code>
+ * Komponente f&uuml;r den CSS-Selektor <code>hs-details-ort</code>
  */
 @Component({
-    selector: 'hs-details-schlagwoerter',
-    templateUrl: './details-schlagwoerter.component.html',
-    imports: [NgForOf, NgSwitch, NgSwitchCase, NgSwitchDefault],
+    selector: 'hs-details-ort',
+    templateUrl: './details-ort.component.html',
+    imports: [MatButtonModule, MatCardModule, MatFormFieldModule],
     standalone: true,
 })
-export class DetailsSchlagwoerterComponent implements OnInit {
-    // <hs-schlagwoerter [values]="kunde.schlagwoerter">
-    // Decorator fuer ein Attribut. Siehe InputMetadata
+export class DetailsOrtComponent implements OnInit {
     @Input()
-    values!: string[];
+    ort!: string;
 
     ngOnInit() {
-        log.debug('DetailsSchlagwoerterComponent.values=', this.values);
+        log.debug('DetailsOrtComponent.ort=', this.ort);
     }
 }

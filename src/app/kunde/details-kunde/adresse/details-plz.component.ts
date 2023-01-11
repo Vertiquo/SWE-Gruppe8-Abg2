@@ -22,19 +22,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r den CSS-Selektor <code>hs-details-waehrung</code>
+ * Komponente f&uuml;r den CSS-Selektor <code>hs-details-ort</code>
  */
 @Component({
-    selector: 'hs-details-waehrung',
-    templateUrl: './details-waehrung.component.html',
+    selector: 'hs-details-plz',
+    templateUrl: './details-plz.component.html',
     imports: [MatButtonModule, MatCardModule, MatFormFieldModule],
     standalone: true,
 })
-export class DetailsWaehrungComponent implements OnInit {
+export class DetailsPlzComponent implements OnInit {
     @Input()
-    waehrung!: string;
+    plz!: string;
 
     ngOnInit() {
-        log.debug('DetailsWaehrungComponent.waehrung=', this.waehrung);
+        log.debug('DetailsPlzComponent.plz=', this.plz);
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 - present Juergen Zimmermann, Hochschule Karlsruhe
+ * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,31 +18,26 @@
 import { Component, Input, type OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTableModule } from '@angular/material/table';
-import { RouterLinkWithHref } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r den CSS-Selektor <code>hs-details-bearbeiten</code>
+ * Komponente f&uuml;r den CSS-Selektor <code>hs-details-familienstand</code>
  */
 @Component({
-    selector: 'hs-details-bearbeiten',
-    templateUrl: './details-bearbeiten.component.html',
-    imports: [
-        MatButtonModule,
-        MatCardModule,
-        MatIconModule,
-        MatTableModule,
-        RouterLinkWithHref,
-    ],
+    selector: 'hs-details-familienstand',
+    templateUrl: './details-familienstand.component.html',
+    imports: [MatButtonModule, MatCardModule, MatFormFieldModule],
     standalone: true,
 })
-export class DetailsBearbeitenComponent implements OnInit {
+export class DetailsFamilienstandComponent implements OnInit {
     @Input()
-    id: string | undefined;
+    familienstand!: string;
 
     ngOnInit() {
-        log.debug('DetailsBearbeitenComponent.id=', this.id);
+        log.debug(
+            'DetailsFamilienstandComponent.familienstand=',
+            this.familienstand,
+        );
     }
 }
