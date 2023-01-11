@@ -22,6 +22,7 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { type KundeForm, toKunde } from './kundeForm';
 import { first, tap } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CreateBetragComponent } from './create-betrag.component';
 import { CreateEmailComponent } from './create-email.component';
@@ -37,9 +38,17 @@ import { CreateOrtComponent } from './create-ort.component';
 import { CreatePlzComponent } from './create-plz.component';
 import { CreateWaehrungComponent } from './create-waehrung.component';
 import { KundeWriteService } from '../shared/kundeWrite.service';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Router } from '@angular/router';
 import { SaveError } from '../shared/errors';
 import log from 'loglevel';
@@ -66,10 +75,19 @@ import log from 'loglevel';
         CreateWaehrungComponent,
         CreatePlzComponent,
         CreateOrtComponent,
+        CommonModule,
         FormsModule,
+        MatButtonModule,
         MatCardModule,
+        MatCheckboxModule,
         MatFormFieldModule,
         MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatSlideToggleModule,
+        MatTooltipModule,
         ReactiveFormsModule,
     ],
     standalone: true,
@@ -107,6 +125,8 @@ export class CreateKundeComponent {
         //    errors    Map<string,any> mit den Fehlern, z.B. {'required': true}
         //    valid/invalid     fuer valide Werte
         //    dirty/pristine    falls der Wert geaendert wurde
+
+        log.debug(this.createForm.value);
 
         if (this.createForm.invalid) {
             log.debug(

@@ -17,7 +17,12 @@
 
 import { Component, Input, type OnInit } from '@angular/core';
 import { DetailsEmailComponent } from './details-email.component';
+import { DetailsFamilienstandComponent } from './details-familienstand.component';
+import { DetailsGeburtsdatumComponent } from './details-geburtsdatum.component';
+import { DetailsHasNewsletterComponent } from './details-hasNewsletter.component';
 import { DetailsHomepageComponent } from './details-homepage.component';
+import { DetailsInteressenComponent } from './details-interessen.component';
+import { DetailsKategorieComponent } from './details-kategorie.component';
 import { DetailsNachnameComponent } from './details-nachname.component';
 import { type Kunde } from '../../shared/kunde';
 import { NgIf } from '@angular/common';
@@ -31,7 +36,12 @@ import log from 'loglevel';
     templateUrl: './details-stammdaten.component.html',
     imports: [
         DetailsEmailComponent,
+        DetailsFamilienstandComponent,
+        DetailsGeburtsdatumComponent,
+        DetailsHasNewsletterComponent,
         DetailsHomepageComponent,
+        DetailsInteressenComponent,
+        DetailsKategorieComponent,
         DetailsNachnameComponent,
         NgIf,
     ],

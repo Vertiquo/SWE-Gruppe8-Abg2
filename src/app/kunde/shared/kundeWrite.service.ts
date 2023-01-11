@@ -22,16 +22,16 @@ import {
     HttpHeaders,
     HttpResponse,
 } from '@angular/common/http';
+import { type Kunde, type User } from './kunde';
 import { type Observable, of } from 'rxjs';
 import { RemoveError, SaveError, UpdateError } from './errors';
 import { catchError, first, map } from 'rxjs/operators';
 import { AuthService } from '../../auth/auth.service';
 import { Injectable } from '@angular/core';
-import { type Kunde } from './kunde';
-import { Temporal } from '@js-temporal/polyfill';
+// import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
 import { paths } from '../../shared/paths';
-import { toKundeServer } from './kundeServer';
+// import { toKundeServer } from './kundeServer';
 
 // Methoden der Klasse HttpClient
 //  * get(url, options) – HTTP GET request
@@ -71,25 +71,30 @@ export class KundeWriteService {
      */
     save(kunde: Kunde): Observable<SaveError | string> {
         log.debug('KundeWriteService.save: kunde=', kunde);
-        kunde.geburtsdatum = Temporal.Now.plainDateISO();
-        log.debug('KundeWriteService.save: kunde=', kunde);
-
-        const authorizationStr = `${this.authService.authorization}`;
-        log.debug(
-            'KundeWriteService.save: authorizationStr=',
-            authorizationStr,
-        );
 
         /* eslint-disable @typescript-eslint/naming-convention */
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
-            Authorization: authorizationStr,
             Accept: 'text/plain',
         });
         /* eslint-enable @typescript-eslint/naming-convention */
 
+        // TODO: Randomly generate password for multiple entries
+        const user: User = {
+            username: 'test',
+            password: 'Pass123.',
+        };
+
+        const customBody = {
+            kunde,
+            user,
+        };
+
+        const json = JSON.stringify(customBody);
+        log.debug('JSON = ', json);
+
         return this.httpClient
-            .post(this.#baseUrl, toKundeServer(kunde), {
+            .post(this.#baseUrl, json, {
                 headers,
                 observe: 'response',
                 responseType: 'text',

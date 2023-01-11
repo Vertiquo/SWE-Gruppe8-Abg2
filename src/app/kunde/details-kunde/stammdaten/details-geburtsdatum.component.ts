@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 - present Juergen Zimmermann, Hochschule Karlsruhe
+ * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,31 +18,27 @@
 import { Component, Input, type OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTableModule } from '@angular/material/table';
-import { RouterLinkWithHref } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { type Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r den CSS-Selektor <code>hs-details-bearbeiten</code>
+ * Komponente f&uuml;r den CSS-Selektor <code>hs-details-geburtsdatum</code>
  */
 @Component({
-    selector: 'hs-details-bearbeiten',
-    templateUrl: './details-bearbeiten.component.html',
-    imports: [
-        MatButtonModule,
-        MatCardModule,
-        MatIconModule,
-        MatTableModule,
-        RouterLinkWithHref,
-    ],
+    selector: 'hs-details-geburtsdatum',
+    templateUrl: './details-geburtsdatum.component.html',
+    imports: [MatButtonModule, MatCardModule, MatFormFieldModule],
     standalone: true,
 })
-export class DetailsBearbeitenComponent implements OnInit {
+export class DetailsGeburtsdatumComponent implements OnInit {
     @Input()
-    id: string | undefined;
+    geburtsdatum!: Temporal.PlainDate | undefined;
 
     ngOnInit() {
-        log.debug('DetailsBearbeitenComponent.id=', this.id);
+        log.debug(
+            'DetailsGeburtsdatumComponent.geburtsdatum=',
+            this.geburtsdatum,
+        );
     }
 }

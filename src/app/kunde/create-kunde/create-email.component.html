@@ -15,10 +15,4 @@
     formControlName="email"
   />
   <mat-hint>Bitte die Email eingeben</mat-hint>
-  <mat-error *ngIf="emailInput.hasError('minlength')">
-    Eine Email ist mindestens 2 Zeichen lang.
-  </mat-error>
-  <mat-error *ngIf="emailInput.hasError('pattern')">
-    Eine Email darf so nicht eingegeben werden.
-  </mat-error>
 </mat-form-field>

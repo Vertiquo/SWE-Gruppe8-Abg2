@@ -1,14 +1,8 @@
-<mat-form-field
-  appearance="outline"
-  class="userInputField"
-  [formGroup]="createForm"
+<mat-label for="hasNewsletterInput"></mat-label>
+<mat-slide-toggle
+  id="hasNewsletterInput"
+  class="toggle-margin"
+  formControlName="hasNewsletter"
 >
-  <mat-label for="hasNewsletterInput">hasNewsletter</mat-label>
-  <mat-slide-toggle
-    id="hasNewsletterInput"
-    class="toggle-margin"
-    formControlName="hasNewsletter"
-  >
-    Newsletter abonnieren
-  </mat-slide-toggle>
-</mat-form-field>
+  Newsletter abonnieren
+</mat-slide-toggle>

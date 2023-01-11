@@ -22,8 +22,14 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import log from 'loglevel';
 
 /**
@@ -38,8 +44,14 @@ import log from 'loglevel';
     imports: [
         FormsModule,
         ReactiveFormsModule,
+        MatButtonModule,
         MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
         MatOptionModule,
+        MatSelectModule,
+        MatTooltipModule,
     ],
 })
 export class CreateFamilienstandComponent implements OnInit {

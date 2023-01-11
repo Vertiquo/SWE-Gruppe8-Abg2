@@ -62,7 +62,7 @@ export class BasicAuthService {
         /* eslint-disable @typescript-eslint/naming-convention */
         const headers = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            Accept: 'text/plain',
+            Accept: 'application/json',
         });
         /* eslint-enable @typescript-eslint/naming-convention */
 

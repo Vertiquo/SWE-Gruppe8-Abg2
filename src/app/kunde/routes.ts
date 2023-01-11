@@ -18,14 +18,15 @@
 // import { BalkendiagrammComponent } from './diagramme/balkendiagramm.component';
 import { CreateKundeComponent } from './create-kunde/create-kunde.component';
 import { DetailsKundeComponent } from './details-kunde/details-kunde.component';
+import { DiagrammKundeComponent } from './diagramm-kunde/diagramm-kunde.component';
 import { HomeComponent } from '../home/home.component';
 // import { LiniendiagrammComponent } from './diagramme/liniendiagramm.component';
 import { type Routes } from '@angular/router';
 import { SucheKundenComponent } from './suche-kunden/suche-kunden.component';
 // import { TortendiagrammComponent } from './diagramme/tortendiagramm.component';
 // import { UpdateKundeComponent } from './update-kunde/update-kunde.component';
-// import { canDeactivateGuard } from './create-kunde/create-deactivate.guard';
-// import { isAdminGuard } from '../auth/isAdmin.guard';
+import { canDeactivateGuard } from './create-kunde/create-deactivate.guard';
+import { isAdminGuard } from '../auth/isAdmin.guard';
 
 // Route-Definitionen fuer das Feature-Modul "kunde":
 // Zuordnung von Pfaden und Komponenten mit HTML-Templates
@@ -39,13 +40,18 @@ export const ROUTES: Routes = [
         path: 'create',
         component: CreateKundeComponent,
         title: 'Neuer Kunde',
-        // canMatch: [isAdminGuard],
-        // canDeactivate: [canDeactivateGuard],
+        canMatch: [isAdminGuard],
+        canDeactivate: [canDeactivateGuard],
     },
     {
         path: 'create',
         component: HomeComponent,
         title: 'Beispiel',
+    },
+    {
+        path: 'diagramm',
+        component: DiagrammKundeComponent,
+        title: 'Diagramm',
     },
     /*  {
         path: 'balkendiagramm',

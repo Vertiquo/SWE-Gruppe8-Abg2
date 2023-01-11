@@ -23,7 +23,13 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import log from 'loglevel';
 
 /**
@@ -36,7 +42,17 @@ import log from 'loglevel';
     templateUrl: './create-plz.component.html',
     styleUrls: ['./create-kunde.component.scss'],
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatTooltipModule,
+    ],
 })
 export class CreatePlzComponent implements OnInit {
     private static readonly MIN_LENGTH = 2;
@@ -49,7 +65,7 @@ export class CreatePlzComponent implements OnInit {
     //    serverseitig mittels Request/Response
     //    clientseitig bei den Ereignissen keyup, change, blur, ...
     // Ein Endbenutzer bewirkt staendig einen neuen Fehlerstatus
-    readonly plz = new FormControl(undefined, [
+    protected readonly plz = new FormControl(undefined, [
         Validators.required,
         Validators.minLength(CreatePlzComponent.MIN_LENGTH),
         // Todo: Add proper RegEx to validator.

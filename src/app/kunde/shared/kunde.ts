@@ -22,7 +22,7 @@ export type Familienstand =
     | 'VERHEIRATET'
     | 'VERWITWET';
 
-export type Geschlecht = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
+export type Geschlecht = 'D' | 'M' | 'W';
 
 export type Interessen = 'L' | 'R' | 'S';
 

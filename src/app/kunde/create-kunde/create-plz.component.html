@@ -14,13 +14,4 @@
     formControlName="plz"
   />
   <mat-hint>Bitte die Postleitzahl eingeben</mat-hint>
-  <mat-error *ngIf="postleitzahlInput.hasError('required')">
-    Eine Postleitzahl ist benötigt.
-  </mat-error>
-  <mat-error *ngIf="postleitzahlInput.hasError('minlength')">
-    Eine Postleitzahl ist mindestens 2 Zeichen lang.
-  </mat-error>
-  <mat-error *ngIf="postleitzahlInput.hasError('pattern')">
-    Eine Postleitzahl darf so nicht eingegeben werden.
-  </mat-error>
 </mat-form-field>

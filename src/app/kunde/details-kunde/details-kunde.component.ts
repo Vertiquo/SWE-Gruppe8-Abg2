@@ -19,9 +19,9 @@ import { ActivatedRoute, Router } from '@angular/router'; // eslint-disable-line
 import { Component, type OnInit } from '@angular/core';
 import { first, tap } from 'rxjs/operators';
 import { AuthService } from '../../auth/auth.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { DetailsAdresseComponent } from './adresse/details-adresse.component';
 import { DetailsBearbeitenComponent } from './details-bearbeiten.component';
 import { DetailsBreadcrumbsComponent } from './details-breadcrumbs.component';
-import { DetailsSchlagwoerterComponent } from './schlagwoerter/details-schlagwoerter.component';
 import { DetailsStammdatenComponent } from './stammdaten/details-stammdaten.component';
 import { ErrorMessageComponent } from '../../shared/error-message.component';
 import { FindError } from '../shared/errors';
@@ -42,7 +42,7 @@ import log from 'loglevel';
     imports: [
         DetailsBearbeitenComponent,
         DetailsBreadcrumbsComponent,
-        DetailsSchlagwoerterComponent,
+        DetailsAdresseComponent,
         DetailsStammdatenComponent,
         ErrorMessageComponent,
         NgIf,

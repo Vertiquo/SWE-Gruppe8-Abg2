@@ -110,7 +110,7 @@ export class SucheKundenComponent {
 
         switch (statuscode) {
             case HttpStatusCode.NotFound: {
-                this.errorMsg = 'Keine Bücher gefunden.';
+                this.errorMsg = 'Keine Kunden gefunden.';
                 break;
             }
             case HttpStatusCode.TooManyRequests: {

@@ -15,14 +15,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<div class="row" *ngFor="let schlagwort of values">
-  <div class="col col-11">
-    <div class="checkbox">
-      <input type="checkbox" checked disabled class="checkbox" />
-      <label class="ms-2" [ngSwitch]="schlagwort">
-        <span *ngSwitchCase="'JAVASCRIPT'">JavaScript</span>
-        <span *ngSwitchCase="'TYPESCRIPT'">TypeScript</span>
-      </label>
-    </div>
-  </div>
+<div *ngIf="kunde">
+  <hs-details-ort [ort]="kunde.adresse.ort"></hs-details-ort>
+  <hs-details-plz [plz]="kunde.adresse.plz"></hs-details-plz>
 </div>

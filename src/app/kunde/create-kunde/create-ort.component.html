@@ -15,13 +15,4 @@
     formControlName="ort"
   />
   <mat-hint>Bitte den Ort eingeben</mat-hint>
-  <mat-error *ngIf="ortInput.hasError('required')">
-    Ein Ort ist benötigt.
-  </mat-error>
-  <mat-error *ngIf="ortInput.hasError('minlength')">
-    Ein Ort ist mindestens 2 Zeichen lang.
-  </mat-error>
-  <mat-error *ngIf="ortInput.hasError('pattern')">
-    Ein Ort darf so nicht eingegeben werden.
-  </mat-error>
 </mat-form-field>

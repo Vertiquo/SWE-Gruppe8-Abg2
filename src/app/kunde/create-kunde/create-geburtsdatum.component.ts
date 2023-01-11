@@ -23,8 +23,15 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatOptionModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import log from 'loglevel';
 
 /**
@@ -39,8 +46,15 @@ import log from 'loglevel';
     imports: [
         FormsModule,
         ReactiveFormsModule,
+        MatButtonModule,
         MatDatepickerModule,
         MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatOptionModule,
+        MatTooltipModule,
     ],
 })
 export class CreateGeburtsdatumComponent implements OnInit {
