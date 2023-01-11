@@ -43,6 +43,18 @@
       Erstellen
     </button>
   </div>
+  <div class="nav-button" *ngIf="isAdmin$ | async">
+    <button
+      mat-flat-button
+      color="primary"
+      routerLink="/kunde/diagramm"
+      routerLinkActive="active"
+      class="nav-button"
+      aria-label="Kunden Diagramme"
+    >
+      Diagramm
+    </button>
+  </div>
   <div class="login">
     <hs-login-logout></hs-login-logout>
   </div>
