@@ -67,8 +67,8 @@ export class CreateInteressenComponent implements OnInit {
     ngOnInit() {
         log.debug('CreateInteressenComponent.ngOnInit');
         // siehe formControlName innerhalb @Component({templateUrl: ...})
-        this.createForm.addControl('SPORT', this.sport);
-        this.createForm.addControl('LESEN', this.lesen);
-        this.createForm.addControl('REISEN', this.reisen);
+        this.createForm.addControl('sport', this.sport);
+        this.createForm.addControl('lesen', this.lesen);
+        this.createForm.addControl('reisen', this.reisen);
     }
 }
