@@ -106,29 +106,9 @@ export class UpdateKundeComponent implements OnInit {
         const { geschlecht } = this.form.value as {
             geschlecht: Geschlecht;
         };
-        const { sport } = this.form.value as { sport: boolean };
-        const { reisen } = this.form.value as { reisen: boolean };
-        const { lesen } = this.form.value as { lesen: boolean };
 
         const { kunde, service } = this;
 
-        const myInteresse = [];
-
-        if (sport) {
-            myInteresse.push('S');
-        }
-        if (lesen) {
-            myInteresse.push('L');
-        }
-        if (reisen) {
-            myInteresse.push('R');
-        }
-
-        kunde.interessen = myInteresse;
-        log.debug(
-            'UpdateKundeComponent.onSubmit: Interessen setzen= ',
-            myInteresse,
-        );
         // datum, preis und rabatt koennen im Formular nicht geaendert werden
         kunde.nachname = nachname;
         kunde.geschlecht = geschlecht;
