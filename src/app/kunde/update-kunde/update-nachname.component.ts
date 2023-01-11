@@ -38,6 +38,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-update-nachname',
     templateUrl: './update-nachname.component.html',
+    styleUrls: ['./update-kunde.component.scss'],
     imports: [
         FormsModule,
         ReactiveFormsModule,

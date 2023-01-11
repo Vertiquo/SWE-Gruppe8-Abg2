@@ -30,6 +30,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import log from 'loglevel';
 
@@ -39,6 +40,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-update-familienstand',
     templateUrl: './update-familienstand.component.html',
+    styleUrls: ['./update-kunde.component.scss'],
     imports: [
         FormsModule,
         ReactiveFormsModule,
@@ -48,6 +50,7 @@ import log from 'loglevel';
         MatIconModule,
         MatInputModule,
         MatOptionModule,
+        MatSelectModule,
         MatTooltipModule,
     ],
     standalone: true,

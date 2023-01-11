@@ -23,12 +23,19 @@ import {
     type Kunde,
 } from '../shared/kunde';
 import { FindError, UpdateError } from '../shared/errors';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { first, map, tap } from 'rxjs/operators';
 import { ErrorMessageComponent } from '../../shared/error-message.component';
 import { KundeReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { KundeWriteService } from '../shared/kundeWrite.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { UpdateFamilienstandComponent } from './update-familienstand.component';
@@ -42,8 +49,17 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-update-kunde',
     templateUrl: './update-kunde.component.html',
+    styleUrls: ['./update-kunde.component.scss'],
     imports: [
+        FormsModule,
         ErrorMessageComponent,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatTooltipModule,
         NgIf,
         ReactiveFormsModule,
         UpdateFamilienstandComponent,

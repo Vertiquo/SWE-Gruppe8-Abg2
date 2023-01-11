@@ -1,10 +1,40 @@
-<div class="updateRoot">
-  <form [formGroup]="updateForm" role="form" (submit)="onSubmit()">
-    <hs-update-nachname [updateForm]="updateForm"></hs-update-nachname>
-    <hs-update-geschlecht [updateForm]="updateForm"> </hs-update-geschlecht>
-    <hs-update-familienstand [updateForm]="updateForm"></hs-update-familienstand>
-    <div>
-      <button class="updateButton" mat-raised-button color="primary" type="submit">Update</button>
-    </div>
-  </form>
+<div class="box-update">
+  <mat-grid-list cols="1" rowHeight="100px">
+    <form [formGroup]="updateForm" role="form" (submit)="onSubmit()">
+      <mat-grid-tile>
+        <h2 class="updateTitle">Einen Kunden aktualisieren</h2>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <hs-update-nachname 
+        class="element-update"
+        [updateForm]="updateForm"
+        ></hs-update-nachname>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <hs-update-geschlecht 
+        class="element-update"
+        [updateForm]="updateForm"
+        ></hs-update-geschlecht>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <hs-update-familienstand 
+        class="element-update"
+        [updateForm]="updateForm"
+        ></hs-update-familienstand>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button 
+          id="buttonUpdate"
+          mat-raised-button 
+          color="primary" 
+          matTooltip="Hier drücken um Kunden zu aktualisieren"
+          type="submit"
+          (click)="onSubmit()"
+          [disabled]="updateForm.invalid"
+        >
+          Update
+        </button>
+      </mat-grid-tile>
+    </form>
+  </mat-grid-list>
 </div>
