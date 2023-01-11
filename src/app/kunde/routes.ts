@@ -24,8 +24,8 @@ import { type Routes } from '@angular/router';
 import { SucheKundenComponent } from './suche-kunden/suche-kunden.component';
 // import { TortendiagrammComponent } from './diagramme/tortendiagramm.component';
 // import { UpdateKundeComponent } from './update-kunde/update-kunde.component';
-// import { canDeactivateGuard } from './create-kunde/create-deactivate.guard';
-// import { isAdminGuard } from '../auth/isAdmin.guard';
+import { canDeactivateGuard } from './create-kunde/create-deactivate.guard';
+import { isAdminGuard } from '../auth/isAdmin.guard';
 
 // Route-Definitionen fuer das Feature-Modul "kunde":
 // Zuordnung von Pfaden und Komponenten mit HTML-Templates
@@ -39,8 +39,8 @@ export const ROUTES: Routes = [
         path: 'create',
         component: CreateKundeComponent,
         title: 'Neuer Kunde',
-        // canMatch: [isAdminGuard],
-        // canDeactivate: [canDeactivateGuard],
+        canMatch: [isAdminGuard],
+        canDeactivate: [canDeactivateGuard],
     },
     {
         path: 'create',
