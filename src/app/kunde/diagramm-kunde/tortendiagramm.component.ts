@@ -62,7 +62,7 @@ export class TortendiagrammComponent implements OnInit {
                     }
 
                     return result
-                        .filter(kunde => kunde.kategorie)
+                        .filter(kunde => kunde.kategorie >= 0)
                         .map(kunde => this.#toDataItem(kunde));
                 }),
                 tap(dataItems => {
