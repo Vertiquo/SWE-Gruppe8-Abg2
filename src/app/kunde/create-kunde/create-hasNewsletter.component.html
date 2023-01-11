@@ -4,11 +4,12 @@
   [formGroup]="createForm"
 >
   <mat-label for="hasNewsletterInput">hasNewsletter</mat-label>
-  <mat-slide-toggle
+  <mat-checkbox
+    matInput
     id="hasNewsletterInput"
     class="toggle-margin"
     formControlName="hasNewsletter"
   >
     Newsletter abonnieren
-  </mat-slide-toggle>
+  </mat-checkbox>
 </mat-form-field>
