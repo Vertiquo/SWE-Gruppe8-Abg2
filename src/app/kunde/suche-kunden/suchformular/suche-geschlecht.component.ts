@@ -16,8 +16,10 @@
  */
 
 import { Component, Output } from '@angular/core';
-import type { MatSelectChange } from '@angular/material/select';
-import { MatSelectModule } from '@angular/material/select';
+import {
+    type MatSelectChange,
+    MatSelectModule,
+} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { type Geschlecht } from '../../shared';
 import { MatButtonModule } from '@angular/material/button';
