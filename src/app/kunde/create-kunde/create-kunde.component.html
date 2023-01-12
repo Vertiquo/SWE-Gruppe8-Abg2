@@ -16,17 +16,20 @@
   <div class="warning-box" *ngIf="showWarning">
     <mat-card class="cardWarning">
       <mat-card-header>
-        <mat-card-title>Warnung</mat-card-title>
+        <mat-icon mat-card-avatar>warning</mat-icon>
+        <mat-card-title> Warnung! </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        Jegliche Daten gehen verloren, wenn Sie die Seite verlassen!
+          Jegliche Daten gehen verloren, wenn Sie die Seite verlassen!
       </mat-card-content>
     </mat-card>
   </div>
 
   <mat-card class="cardCreate">
     <mat-card-header>
-      <mat-card-title class="cardCreateTitle">Einen Kunden anlegen</mat-card-title>
+      <mat-card-title class="cardCreateTitle"
+        >Einen Kunden anlegen</mat-card-title
+      >
     </mat-card-header>
     <mat-card-content>
       <div class="box-create">
