@@ -1,25 +1,36 @@
 @use '../../sass/colors';
 
 .box-update {
-    width: 100%;
-  }
+  width: 100%;
+}
 
 .updateTitle {
-    background-color: #02a7f0;
-    width: 100%;
-    text-align: center;
-  }
+  background-color: #02a7f0;
+  width: 100%;
+  text-align: center;
+}
 
 .element-update {
-    width: 50%;
-  }
+  width: 50%;
+}
 
 .updateInputField {
-    width: 100%;
+  width: 100%;
 }
 
 .warning-box {
-    width: 80%;
-    margin: auto;
-    padding-top: 25px;
-  }
+  width: 80%;
+  margin: auto;
+  padding-top: 25px;
+}
+
+mat-icon.mat-card-avatar {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+}
+
+.cardWarning {
+  margin-bottom: 20px;
+  background-color: darkorange;
+}
