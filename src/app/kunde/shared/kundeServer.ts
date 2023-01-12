@@ -16,12 +16,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import type {
-    Familienstand,
-    Geschlecht,
-    Kunde,
-    KundeShared,
-    Umsatz,
+
+import {
+    type Familienstand,
+    type Geschlecht,
+    type Kunde,
+    type KundeShared,
+    type Umsatz,
 } from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
