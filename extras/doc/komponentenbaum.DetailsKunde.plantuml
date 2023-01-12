@@ -23,19 +23,37 @@ rectangle DetailsKunde
 rectangle Waiting
 rectangle DetailsBreadcrumbs
 rectangle DetailsStammdaten
-rectangle DetailsSchlagwoerter
+rectangle DetailsAdresse
 rectangle DetailsBearbeiten
 
 DetailsKunde --> Waiting
 DetailsKunde --> DetailsBreadcrumbs
 DetailsKunde --> DetailsStammdaten
-DetailsKunde --> DetailsSchlagwoerter
+DetailsKunde --> DetailsAdresse
 DetailsKunde --> DetailsBearbeiten
 
+rectangle DetailsKategorie
 rectangle DetailsNachname
 rectangle DetailsEmail
+rectangle DetailsHomepage
+rectangle DetailsFamilienstand
+rectangle DetailsGeburtsdatum
+rectangle DetailsHasNewsletter
+rectangle DetailsInteressen
 
+DetailsStammdaten --> DetailsKategorie
 DetailsStammdaten --> DetailsNachname
 DetailsStammdaten --> DetailsEmail
+DetailsStammdaten --> DetailsHomepage
+DetailsStammdaten --> DetailsFamilienstand
+DetailsStammdaten --> DetailsGeburtsdatum
+DetailsStammdaten --> DetailsHasNewsletter
+DetailsStammdaten --> DetailsInteressen
+
+rectangle DetailsOrt
+rectangle DetailsPlz
+
+DetailsAdresse --> DetailsOrt
+DetailsAdresse --> DetailsPlz
 
 @enduml

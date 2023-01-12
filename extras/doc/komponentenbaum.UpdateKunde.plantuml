@@ -19,27 +19,16 @@
 
 'top to bottom direction
 
-rectangle SucheKunden
-rectangle Suchformular
-rectangle Waiting
-rectangle Suchergebnis
+rectangle UpdateKunde
+rectangle UpdateNachname
+rectangle UpdateHomepage
+rectangle UpdateGeschlecht
+rectangle UpdateFamilienstand
 
-SucheKunden --> Suchformular
-SucheKunden --> Waiting
-SucheKunden --> Suchergebnis
+UpdateKunde --> UpdateNachname
+UpdateKunde --> UpdateHomepage
+UpdateKunde --> UpdateGeschlecht
+UpdateKunde --> UpdateFamilienstand
 
-rectangle SucheNachname
-rectangle SucheGeschlecht
-rectangle SucheFamilienstand
-
-Suchformular --> SucheNachname
-Suchformular --> SucheGeschlecht
-Suchformular --> SucheFamilienstand
-
-rectangle ErrorMessage
-rectangle GefundeneKunden
-
-Suchergebnis --> ErrorMessage
-Suchergebnis --> GefundeneKunden
 
 @enduml
