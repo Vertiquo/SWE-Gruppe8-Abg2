@@ -1,0 +1,24 @@
+.diagramme {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.diaTitle {
+    background-color: var(--themeaccent);
+    color: white;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.diaCard {
+    background-color: var(--themelight);
+    width: 80%;
+    margin: 20px;
+}
+
+.diagrammrender {
+    margin: 0 auto;
+}

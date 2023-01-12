@@ -1,6 +1,3 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable @typescript-eslint/consistent-type-imports */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /*
  * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
@@ -23,33 +20,52 @@ import { first, map, tap } from 'rxjs/operators';
 import { FindError } from '../shared/errors';
 import { KeineKundenError } from './errors';
 import { type Kunde } from '../shared/kunde';
-import { KundeReadService } from '../shared/kundeRead.service';
+import { KundeReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { MatCardModule } from '@angular/material/card';
 import log from 'loglevel';
 
+// D3 (= Data Driven Documents) https://d3js.org ist das fuehrende Produkt
+// fuer Datenvisualisierung:
+//  initiale Version durch die Dissertation von Mike Bostock
+//  gesponsort von der New York Times, seinem heutigen Arbeitgeber
+//  basiert auf SVG = scalable vector graphics: Punkte, Linien, Kurven, ...
+//  ca 250.000 Downloads/Monat bei https://www.npmjs.com
+//  https://github.com/mbostock/d3 mit ueber 100 Contributors
+
+// Alternativen:
+// ngx-charts:    https://swimlane.gitbook.io/ngx-charts
+// Google Charts: https://google-developers.appspot.com/chart
+// Chart.js:      https://github.com/nnnick/Chart.js
+// Chartist.js:   http://gionkunz.github.io/chartist-js
+// n3-chart:      http://n3-charts.github.io/line-chart
+
+// https://www.ngdevelop.tech/best-angular-chart-libraries
+// https://openbase.io/packages/top-angular-chart-libraries
+
 /**
- * Komponente mit dem CSS-Selektor &lt;hs-tortendiagramm&gt; zur Visualisierung
- * von Bewertungen durch ein Tortendiagramm.
+ * Komponente mit dem CSS-Selektor &lt;hs-balkendiagramm&gt; zur Visualisierung
+ * von Bewertungen durch ein Balkendiagramm.
+ * https://blog.angular-university.io/angular-viewchild
  */
 @Component({
-    selector: 'hs-tortendiagramm',
+    selector: 'hs-balkendiagramm',
     templateUrl: './diagramme.component.html',
-    styleUrls: ['./diagramme.component.scss'],
     imports: [MatCardModule, NgxChartsModule],
+    styleUrls: ['./diagramme.component.scss'],
     standalone: true,
 })
-export class TortendiagrammComponent implements OnInit {
+export class BalkendiagrammComponent implements OnInit {
     protected dataItems!: DataItem[];
 
     constructor(private readonly service: KundeReadService) {
-        log.debug('TortendiagrammComponent.constructor()');
+        log.debug('BalkendiagrammComponent.constructor()');
     }
 
     /**
-     * Daten fuer das Tortendiagramm bereitstellen.
+     * Daten fuer das Balkendiagramm bereitstellen.
      */
     ngOnInit() {
-        log.debug('TortendiagrammComponent.ngOnInit()');
+        log.debug('BalkendiagrammComponent.ngOnInit()');
         this.#setDataItems();
     }
 
@@ -64,7 +80,7 @@ export class TortendiagrammComponent implements OnInit {
                     }
 
                     return result
-                        .filter(kunde => kunde.kategorie >= 0)
+                        .filter(kunde => kunde.kategorie)
                         .map(kunde => this.#toDataItem(kunde));
                 }),
                 tap(dataItems => {
@@ -74,10 +90,11 @@ export class TortendiagrammComponent implements OnInit {
             .subscribe();
     }
 
-    // https://stackblitz.com/edit/swimlane-pie-chart?embed=1&file=app/app.component.ts
+    // https://swimlane.gitbook.io/ngx-charts/examples/bar-charts/vertical-bar-chart
+    // https://blog.knoldus.com/visualizing-data-with-ngx-charts-in-angular
     #toDataItem(kunde: Kunde): DataItem {
         return {
-            name: kunde.id!,
+            name: kunde.id!, // eslint-disable-line @typescript-eslint/no-non-null-assertion
             value: kunde.kategorie,
         };
     }
