@@ -161,8 +161,8 @@ export class UpdateKundeComponent implements OnInit {
         this.kunde = result;
         this.errorMsg = undefined;
 
-        const nachname = `Aktualisieren ${this.kunde.id}`;
-        this.titleService.setTitle(nachname);
+        const titel = `Aktualisieren ${this.kunde.id}`;
+        this.titleService.setTitle(titel);
     }
 
     #handleFindError(err: FindError) {
@@ -246,6 +246,6 @@ export class UpdateKundeComponent implements OnInit {
 
         // Gefundenen Kunden als NavigationExtras im Router puffern
         const state = { kunde };
-        await this.router.navigate([`/kunden/${kunde.id}`], { state });
+        await this.router.navigate([`/kunde/${kunde.id}`], { state });
     }
 }
