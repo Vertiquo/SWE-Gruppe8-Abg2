@@ -21,9 +21,10 @@
 
 rectangle DiagrammKunde
 rectangle Tortendiagramm
+rectangle Balkendiagramm
 
 DiagrammKunde --> Tortendiagramm
-
+DiagrammKunde --> Balkendiagramm
 
 
 @enduml
