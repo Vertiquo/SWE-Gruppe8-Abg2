@@ -15,14 +15,15 @@
 
 @use '../../sass/colors';
 
+/* stylelint-disable selector-class-pattern, selector-no-qualifying-type, selector-type-no-unknown */
 .cardWarning {
-  margin-bottom: 20px;
   background-color: darkorange;
+  margin-bottom: 20px;
 }
 
 .cardCreate {
-  margin: 20px auto;
   background-color: var(--themelight);
+  margin: 20px auto;
   width: 80%;
 }
 
@@ -43,28 +44,30 @@
 }
 
 .interessen-section {
-  display: flex;
   align-content: center;
   align-items: center;
+  display: flex;
   gap: 60px;
 }
 
 .split-section {
-  display: flex;
   align-content: left;
   align-items: center;
-  width: 50%;
+  display: flex;
   gap: 10px;
+  width: 50%;
 }
 
 .warning-box {
-  width: 80%;
   margin: auto;
   padding-top: 25px;
+  width: 80%;
 }
 
 mat-icon.mat-card-avatar {
-  width: 40px;
-  height: 40px;
   font-size: 40px;
+  height: 40px;
+  width: 40px;
 }
+
+/* stylelint-enable selector-class-pattern, selector-no-qualifying-type, selector-type-no-unknown */

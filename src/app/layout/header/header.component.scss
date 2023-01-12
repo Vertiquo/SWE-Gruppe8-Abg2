@@ -15,6 +15,7 @@
 
 @use '../../sass/colors';
 
+/* stylelint-disable color-no-hex */
 :root {
   --background-color: #273c84;
 }
@@ -29,14 +30,16 @@
 //}
 
 .header {
+  align-items: center;
   background-color: #273c84;
+  display: flex;
   height: 100px;
   padding-left: 1%;
   padding-right: 1%;
   width: 100%;
-  display: flex;
-  align-items: center;
 }
+
+/* stylelint-enable color-no-hex */
 
 // wird nicht benutzt
 .router-link-active {
@@ -46,11 +49,11 @@
 }
 
 .navigation {
-  width: max-content;
-  display: flex;
-  justify-content: right;
   align-items: center;
+  display: flex;
   flex: 1;
+  justify-content: right;
+  width: max-content;
 }
 
 .nav-button {

@@ -1,23 +1,29 @@
 @use '../../sass/colors';
 
+/* stylelint-disable selector-class-pattern */
 .boxAbstandDaten {
   margin: 10px;
 }
+
 .cardAbstand {
   margin: 10px;
 }
+
 .detailsCard {
+  background-color: var(--themeaccent);
   display: flex;
-  justify-content: center;
-  background-color: var(-- themeaccent);
   font-size: 15pt;
   font-weight: 500;
+  justify-content: center;
 }
+
 .KundenID {
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .BearbeitenButton {
   display: flex;
   justify-content: center;
 }
+
+/* stylelint-enable selector-class-pattern */

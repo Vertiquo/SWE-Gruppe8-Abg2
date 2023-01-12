@@ -15,6 +15,7 @@
 
 // "Partial" Datei als Hilfsdatei fuer @use, d.h. Wiederverwendung
 
+/* stylelint-disable color-no-hex */
 :root {
   // --bluesky: #bed6f8;
   --bluesky: rgb(190 214 248);
@@ -25,3 +26,5 @@
   // $black: rgb(0 0 0);
   --black: black;
 }
+
+/* stylelint-enable color-no-hex */

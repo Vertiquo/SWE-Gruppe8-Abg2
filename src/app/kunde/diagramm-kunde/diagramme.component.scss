@@ -1,3 +1,4 @@
+/* stylelint-disable selector-class-pattern */
 .diagramme {
   display: flex;
   justify-content: center;
@@ -7,10 +8,10 @@
 .diaTitle {
   background-color: var(--themeaccent);
   color: white;
-  text-align: center;
   margin: 0 auto;
   margin-bottom: 10px;
   margin-top: 10px;
+  text-align: center;
   width: 80%;
 }
 
@@ -23,3 +24,5 @@
 .diagrammrender {
   margin: 0 auto;
 }
+
+/* stylelint-enable selector-class-pattern */

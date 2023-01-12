@@ -1,23 +1,30 @@
+/* stylelint-disable color-no-hex, selector-class-pattern */
 .cardCreate {
-  margin: 20px auto;
   background-color: var(--themelight);
+  margin: 20px auto;
   width: 80%;
 }
+
 .carcCreateTitle {
   text-align: center;
 }
+
 .box-search {
   width: 100%;
 }
+
 .element-search {
   width: 35%;
 }
+
 .userInputField {
   width: 100%;
 }
 
 .searchTitle {
   background-color: #02a7f0;
-  width: 100%;
   text-align: center;
+  width: 100%;
 }
+
+/* stylelint-enable color-no-hex, selector-class-pattern */

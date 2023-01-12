@@ -1,11 +1,13 @@
 @use '../../sass/colors';
 
+/* stylelint-disable selector-class-pattern, selector-no-qualifying-type, selector-type-no-unknown */
 .cardCreate {
-  margin: 20px auto;
   background-color: var(--themelight);
+  margin: 20px auto;
   width: 80%;
 }
-.carcCreateTitle {
+
+.cardCreateTitle {
   text-align: center;
 }
 
@@ -14,9 +16,9 @@
 }
 
 .updateTitle {
-  background-color: var(-- themeaccent);
-  width: 100%;
+  background-color: var(--themeaccent);
   text-align: center;
+  width: 100%;
 }
 
 .element-update {
@@ -28,18 +30,20 @@
 }
 
 .warning-box {
-  width: 80%;
   margin: auto;
   padding-top: 25px;
+  width: 80%;
 }
 
 mat-icon.mat-card-avatar {
-  width: 40px;
-  height: 40px;
   font-size: 40px;
+  height: 40px;
+  width: 40px;
 }
 
 .cardWarning {
-  margin-bottom: 20px;
   background-color: darkorange;
+  margin-bottom: 20px;
 }
+
+/* stylelint-enable selector-class-pattern, selector-no-qualifying-type, selector-type-no-unknown */
