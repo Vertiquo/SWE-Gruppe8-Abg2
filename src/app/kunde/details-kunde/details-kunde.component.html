@@ -32,14 +32,16 @@
     </mat-card>
 
     <mat-tab-group>
-    <mat-tab label="Stammdaten">
-      <hs-details-stammdaten [kunde]="kunde" class="boxAbstandDaten"> </hs-details-stammdaten>
-    </mat-tab>
+      <mat-tab label="Stammdaten">
+        <hs-details-stammdaten [kunde]="kunde" class="boxAbstandDaten">
+        </hs-details-stammdaten>
+      </mat-tab>
 
-    <mat-tab label="Adresse">
-      <hs-details-adresse [kunde]="kunde" class="boxAbstandDaten"> </hs-details-adresse>
-    </mat-tab>
-    </mat-tab-group> 
+      <mat-tab label="Adresse">
+        <hs-details-adresse [kunde]="kunde" class="boxAbstandDaten">
+        </hs-details-adresse>
+      </mat-tab>
+    </mat-tab-group>
 
     <hs-details-bearbeiten [id]="kunde.id" *ngIf="isAdmin">
     </hs-details-bearbeiten>

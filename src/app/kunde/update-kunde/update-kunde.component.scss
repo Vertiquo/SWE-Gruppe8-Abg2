@@ -1,11 +1,11 @@
 @use '../../sass/colors';
 
-.cardCreate{
+.cardCreate {
   margin: 20px auto;
   background-color: var(--themelight);
   width: 80%;
 }
-.carcCreateTitle{
+.carcCreateTitle {
   text-align: center;
 }
 
@@ -14,10 +14,10 @@
 }
 
 .updateTitle {
-    background-color: var(-- themeaccent);
-    width: 100%;
-    text-align: center;
-  }
+  background-color: var(-- themeaccent);
+  width: 100%;
+  text-align: center;
+}
 
 .element-update {
   width: 50%;

@@ -19,6 +19,7 @@ import { Component, Output } from '@angular/core';
 import { type Familienstand, type Geschlecht } from '../../shared/kunde';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -44,6 +45,7 @@ import log from 'loglevel';
     imports: [
         FormsModule,
         MatButtonModule,
+        MatCardModule,
         MatFormFieldModule,
         MatGridListModule,
         MatIconModule,

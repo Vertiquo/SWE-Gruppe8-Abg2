@@ -5,7 +5,7 @@
       <mat-card-title> Warnung! </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        Jegliche Daten gehen verloren, wenn Sie die Seite verlassen!
+      Jegliche Daten gehen verloren, wenn Sie die Seite verlassen!
     </mat-card-content>
   </mat-card>
 </div>
@@ -15,40 +15,40 @@
     <mat-card-title class="cardCreateTitle">
       Einen Kunden aktualisieren
     </mat-card-title>
-  </mat-card-header> 
+  </mat-card-header>
   <mat-card-content>
     <div class="box-update">
       <mat-grid-list cols="1" rowHeight="100px">
         <form [formGroup]="updateForm" role="form" (submit)="onSubmit()">
           <mat-grid-tile>
-            <hs-update-nachname 
-            class="element-update"
-            [updateForm]="updateForm"
+            <hs-update-nachname
+              class="element-update"
+              [updateForm]="updateForm"
             ></hs-update-nachname>
           </mat-grid-tile>
           <mat-grid-tile>
-            <hs-update-homepage 
-            class="element-update"
-            [updateForm]="updateForm"
+            <hs-update-homepage
+              class="element-update"
+              [updateForm]="updateForm"
             ></hs-update-homepage>
           </mat-grid-tile>
           <mat-grid-tile>
-            <hs-update-geschlecht 
-            class="element-update"
-            [updateForm]="updateForm"
+            <hs-update-geschlecht
+              class="element-update"
+              [updateForm]="updateForm"
             ></hs-update-geschlecht>
           </mat-grid-tile>
           <mat-grid-tile>
-            <hs-update-familienstand 
-            class="element-update"
-            [updateForm]="updateForm"
+            <hs-update-familienstand
+              class="element-update"
+              [updateForm]="updateForm"
             ></hs-update-familienstand>
           </mat-grid-tile>
           <mat-grid-tile>
-            <button 
+            <button
               id="buttonUpdate"
-              mat-raised-button 
-              color="primary" 
+              mat-raised-button
+              color="primary"
               matTooltip="Hier drücken um Kunden zu aktualisieren"
               type="submit"
               (click)="onSubmit()"
