@@ -1,0 +1,25 @@
+@use '../../sass/colors';
+
+.box-update {
+    width: 100%;
+  }
+
+.updateTitle {
+    background-color: #02a7f0;
+    width: 100%;
+    text-align: center;
+  }
+
+.element-update {
+    width: 50%;
+  }
+
+.updateInputField {
+    width: 100%;
+}
+
+.warning-box {
+    width: 80%;
+    margin: auto;
+    padding-top: 25px;
+  }

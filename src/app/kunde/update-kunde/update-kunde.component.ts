@@ -23,17 +23,25 @@ import {
     type Kunde,
 } from '../shared/kunde';
 import { FindError, UpdateError } from '../shared/errors';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { first, map, tap } from 'rxjs/operators';
 import { ErrorMessageComponent } from '../../shared/error-message.component';
 import { KundeReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { KundeWriteService } from '../shared/kundeWrite.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { UpdateFamilienstandComponent } from './update-familienstand.component';
 import { UpdateGeschlechtComponent } from './update-geschlecht.component';
-import { UpdateInteressenComponent } from './update-interessen.component';
+import { UpdateHomepageComponent } from './update-homepage.component';
 import { UpdateNachnameComponent } from './update-nachname.component';
 import log from 'loglevel';
 
@@ -43,13 +51,23 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-update-kunde',
     templateUrl: './update-kunde.component.html',
+    styleUrls: ['./update-kunde.component.scss'],
     imports: [
+        FormsModule,
         ErrorMessageComponent,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatTooltipModule,
         NgIf,
         ReactiveFormsModule,
         UpdateFamilienstandComponent,
+        UpdateHomepageComponent,
         UpdateGeschlechtComponent,
-        UpdateInteressenComponent,
         UpdateNachnameComponent,
     ],
     standalone: true,
@@ -57,7 +75,9 @@ import log from 'loglevel';
 export class UpdateKundeComponent implements OnInit {
     protected kunde: Kunde | undefined;
 
-    protected readonly form = new FormGroup({});
+    protected readonly updateForm = new FormGroup({});
+
+    showWarning = false;
 
     protected errorMsg: string | undefined;
 
@@ -96,43 +116,25 @@ export class UpdateKundeComponent implements OnInit {
      * zur&uuml;ckschreiben.
      */
     onSubmit() {
-        if (this.form.pristine || this.kunde === undefined) {
+        if (this.updateForm.pristine || this.kunde === undefined) {
             log.debug('UpdateKundeComponent.onSubmit: keine Aenderungen');
             return;
         }
 
-        const { nachname } = this.form.value as { nachname: string };
-        const { familienstand } = this.form.value as {
+        const { nachname } = this.updateForm.value as { nachname: string };
+        const { homepage } = this.updateForm.value as { homepage: string };
+        const { familienstand } = this.updateForm.value as {
             familienstand: Familienstand;
         };
-        const { geschlecht } = this.form.value as {
+        const { geschlecht } = this.updateForm.value as {
             geschlecht: Geschlecht;
         };
-        const { sport } = this.form.value as { sport: boolean };
-        const { reisen } = this.form.value as { reisen: boolean };
-        const { lesen } = this.form.value as { lesen: boolean };
 
         const { kunde, service } = this;
 
-        const myInteresse = [];
-
-        if (sport) {
-            myInteresse.push('S');
-        }
-        if (lesen) {
-            myInteresse.push('L');
-        }
-        if (reisen) {
-            myInteresse.push('R');
-        }
-
-        kunde.interessen = myInteresse;
-        log.debug(
-            'UpdateKundeComponent.onSubmit: Interessen setzen= ',
-            myInteresse,
-        );
         // datum, preis und rabatt koennen im Formular nicht geaendert werden
         kunde.nachname = nachname;
+        kunde.homepage = homepage;
         kunde.geschlecht = geschlecht;
         kunde.familienstand = familienstand;
         log.debug('UpdateKundeComponent.onSubmit: kunde=', kunde);
@@ -242,7 +244,7 @@ export class UpdateKundeComponent implements OnInit {
             return;
         }
 
-        // Gefundenes Kunde als NavigationExtras im Router puffern
+        // Gefundenen Kunden als NavigationExtras im Router puffern
         const state = { kunde };
         await this.router.navigate([`/kunden/${kunde.id}`], { state });
     }

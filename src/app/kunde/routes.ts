@@ -29,6 +29,7 @@ import { SucheKundenComponent } from './suche-kunden/suche-kunden.component';
 // import { TortendiagrammComponent } from './diagramme/tortendiagramm.component';
 // import { UpdateKundeComponent } from './update-kunde/update-kunde.component';
 import { TortendiagrammComponent } from './diagramm-kunde/tortendiagramm.component';
+import { UpdateKundeComponent } from './update-kunde/update-kunde.component';
 
 // Route-Definitionen fuer das Feature-Modul "kunde":
 // Zuordnung von Pfaden und Komponenten mit HTML-Templates
@@ -92,12 +93,11 @@ export const ROUTES: Routes = [
     */
 
     // id als Pfad-Parameter
-    /*  {
+    {
         path: 'update/:id',
         component: UpdateKundeComponent,
         canMatch: [isAdminGuard],
     },
-    */
     {
         path: 'update/:id',
         component: HomeComponent,

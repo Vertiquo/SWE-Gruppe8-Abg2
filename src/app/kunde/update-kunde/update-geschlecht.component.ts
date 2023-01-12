@@ -24,21 +24,41 @@ import {
     Validators,
 } from '@angular/forms';
 import { type Geschlecht } from '../shared/kunde';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r den CSS-Selektor <code>hs-update-geschlecht</code>
+ * Komponente f&uuml;r das Tag <code>hs-update-art</code>
  */
 @Component({
     selector: 'hs-update-geschlecht',
     templateUrl: './update-geschlecht.component.html',
-    imports: [FormsModule, ReactiveFormsModule],
+    styleUrls: ['./update-kunde.component.scss'],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatTooltipModule,
+    ],
     standalone: true,
 })
 export class UpdateGeschlechtComponent implements OnInit {
-    // <hs-update-geschlecht [form]="form" [currentValue]="...">
+    // <hs-update-art [form]="form" [currentValue]="...">
     @Input()
-    form!: FormGroup;
+    updateForm!: FormGroup;
 
     @Input()
     currentValue!: Geschlecht;
@@ -47,7 +67,7 @@ export class UpdateGeschlechtComponent implements OnInit {
 
     ngOnInit() {
         log.debug(
-            'UpdateGeschlechtComponent.ngOnInit: currentValue=',
+            'UpdateArtComponent.ngOnInit: currentValue=',
             this.currentValue,
         );
         // siehe formControlName innerhalb @Component({templateUrl: ...})
@@ -55,6 +75,6 @@ export class UpdateGeschlechtComponent implements OnInit {
             this.currentValue,
             Validators.required,
         );
-        this.form.addControl('geschlecht', this.geschlecht);
+        this.updateForm.addControl('geschlecht', this.geschlecht);
     }
 }

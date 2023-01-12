@@ -33,11 +33,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r den CSS-Selektor <code>hs-update-nachname</code>
+ * Komponente f&uuml;r den CSS-Selektor <code>hs-update-homepage</code>
  */
 @Component({
-    selector: 'hs-update-nachname',
-    templateUrl: './update-nachname.component.html',
+    selector: 'hs-update-homepage',
+    templateUrl: './update-homepage.component.html',
     styleUrls: ['./update-kunde.component.scss'],
     imports: [
         FormsModule,
@@ -52,29 +52,29 @@ import log from 'loglevel';
     ],
     standalone: true,
 })
-export class UpdateNachnameComponent implements OnInit {
-    private static readonly MIN_LENGTH = 2;
+export class UpdateHomepageComponent implements OnInit {
+    private static readonly MIN_LENGTH = 5;
 
-    // <hs-update-nachname [form]="form" [currentValue]="...">
+    // <hs-update-homepage [form]="form" [currentValue]="...">
     @Input()
     updateForm!: FormGroup;
 
     @Input()
     currentValue!: string;
 
-    protected nachname!: FormControl;
+    protected homepage!: FormControl;
 
     ngOnInit() {
         log.debug(
-            'UpdateNachnameComponent.ngOnInit: currentValue=',
+            'UpdateHomepageComponent.ngOnInit: currentValue=',
             this.currentValue,
         );
         // siehe formControlName innerhalb @Component({templateUrl: ...})
-        this.nachname = new FormControl(this.currentValue, [
+        this.homepage = new FormControl(this.currentValue, [
             Validators.required,
-            Validators.minLength(UpdateNachnameComponent.MIN_LENGTH),
+            Validators.minLength(UpdateHomepageComponent.MIN_LENGTH),
             Validators.pattern(/^\w/u),
         ]);
-        this.updateForm.addControl('nachname', this.nachname);
+        this.updateForm.addControl('homepage', this.homepage);
     }
 }

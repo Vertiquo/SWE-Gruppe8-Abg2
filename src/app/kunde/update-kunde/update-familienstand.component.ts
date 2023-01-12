@@ -24,6 +24,14 @@ import {
     Validators,
 } from '@angular/forms';
 import { type Familienstand } from '../shared/kunde';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import log from 'loglevel';
 
 /**
@@ -32,13 +40,25 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-update-familienstand',
     templateUrl: './update-familienstand.component.html',
-    imports: [FormsModule, ReactiveFormsModule],
+    styleUrls: ['./update-kunde.component.scss'],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatTooltipModule,
+    ],
     standalone: true,
 })
 export class UpdateFamilienstandComponent implements OnInit {
     // <hs-update-familienstand [form]="form" [currentValue]="...">
     @Input()
-    form!: FormGroup;
+    updateForm!: FormGroup;
 
     @Input()
     currentValue!: Familienstand;
@@ -55,6 +75,6 @@ export class UpdateFamilienstandComponent implements OnInit {
             this.currentValue,
             Validators.required,
         );
-        this.form.addControl('familienstand', this.familienstand);
+        this.updateForm.addControl('familienstand', this.familienstand);
     }
 }

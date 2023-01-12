@@ -1,65 +1,54 @@
-<!--
-   Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
+<div class="warning-box" *ngIf="showWarning">
+  <mat-card>
+    <mat-card-title> Warnung </mat-card-title>
+    <br />
+    Wenn Sie diese Seite verlassen, gehen Ihre Daten verloren.
+  </mat-card>
+</div>
 
-   This program is free software: you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-<section class="mt-1 ms-1" *ngIf="kunde">
-  <h4>Kunde {{ kunde.id }}:</h4>
-
-  <div class="mt-2 ms-2">
-    <!--
-    Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-    <form [formGroup]="form" role="form" (submit)="onSubmit()">
-      <hs-update-nachname [form]="form" [currentValue]="kunde.nachname">
-      </hs-update-nachname>
-      <hs-update-familienstand
-        [form]="form"
-        [currentValue]="kunde.familienstand"
-      >
-      </hs-update-familienstand>
-      <hs-update-geschlecht [form]="form" [currentValue]="kunde.geschlecht">
-      </hs-update-geschlecht>
-
-      <div class="row">
-        <div class="col offset-2 gy-3">
-          <!-- form.pristine ist das Gegenteil von form.dirty -->
-          <button
-            type="submit"
-            class="btn btn-primary"
-            [disabled]="form.pristine || form.invalid"
-          >
-            <i class="material-icons">check</i>
-            <span class="ms-1">Stammdaten aktualisieren</span>
-          </button>
-        </div>
-      </div>
+<div class="box-update">
+  <mat-grid-list cols="1" rowHeight="100px">
+    <form [formGroup]="updateForm" role="form" (submit)="onSubmit()">
+      <mat-grid-tile>
+        <h2 class="updateTitle">Einen Kunden aktualisieren</h2>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <hs-update-nachname 
+        class="element-update"
+        [updateForm]="updateForm"
+        ></hs-update-nachname>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <hs-update-homepage 
+        class="element-update"
+        [updateForm]="updateForm"
+        ></hs-update-homepage>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <hs-update-geschlecht 
+        class="element-update"
+        [updateForm]="updateForm"
+        ></hs-update-geschlecht>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <hs-update-familienstand 
+        class="element-update"
+        [updateForm]="updateForm"
+        ></hs-update-familienstand>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button 
+          id="buttonUpdate"
+          mat-raised-button 
+          color="primary" 
+          matTooltip="Hier drücken um Kunden zu aktualisieren"
+          type="submit"
+          (click)="onSubmit()"
+          [disabled]="updateForm.invalid"
+        >
+          Update
+        </button>
+      </mat-grid-tile>
     </form>
-  </div>
-</section>
-
-<hs-error-message [text]="errorMsg"></hs-error-message>
+  </mat-grid-list>
+</div>
