@@ -26,18 +26,20 @@
     </mat-card>
 
     <mat-card>
-      <mat-card-content class="KundenID">Kunde {{ kunde.id }}:</mat-card-content>
+      <mat-card-content class="KundenID"
+        >Kunde {{ kunde.id }}:</mat-card-content
+      >
     </mat-card>
 
     <mat-tab-group>
-    <mat-tab label="Stammdaten">
-      <hs-details-stammdaten [kunde]="kunde"> </hs-details-stammdaten>
-    </mat-tab>
+      <mat-tab label="Stammdaten">
+        <hs-details-stammdaten [kunde]="kunde"> </hs-details-stammdaten>
+      </mat-tab>
 
-    <mat-tab label="Adresse">
-      <hs-details-adresse [kunde]="kunde"> </hs-details-adresse>
-    </mat-tab>
-    </mat-tab-group> 
+      <mat-tab label="Adresse">
+        <hs-details-adresse [kunde]="kunde"> </hs-details-adresse>
+      </mat-tab>
+    </mat-tab-group>
 
     <hs-details-bearbeiten [id]="kunde.id" *ngIf="isAdmin">
     </hs-details-bearbeiten>
