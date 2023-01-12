@@ -1,10 +1,17 @@
 @use '../../sass/colors';
 
-.mt-2.ms-2{
+.detailsCard{
     display: flex;
     justify-content: center;
+    background-color: var(-- themeaccent);
+    font-size: 15pt;
+    font-weight: 500;
 }
-.mt-4{
+.KundenID{
+    font-weight: 700;
+}
+
+.BearbeitenButton{
     display: flex;
     justify-content: center;
 }
