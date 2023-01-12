@@ -44,7 +44,7 @@ state index.html {
 
     [*] -down-> SucheKunden: Menüpunkt "Suche"
     GefundeneKunden -right-> DetailsKunde: Link anklicken
-    DetailsBuch -up-> [*]
+    DetailsKunde -up-> [*]
 
     Suchergebnis -right[hidden]-> DetailsKunde
     SucheKunden -right[hidden]-> DetailsKunde

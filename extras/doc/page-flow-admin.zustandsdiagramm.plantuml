@@ -44,7 +44,7 @@ state index.html {
     [*] -down-> SucheKunden: Menüpunkt "Suche"
     GefundeneKunden -right-> DetailsKunde: Link anklicken
 
-    [*] -down-> CreateKunde: Menüpunkt "Neuer Kunde"
+    [*] -down-> CreateKunde: Menüpunkt "Erstellen"
     SucheKunden -right[hidden]-> CreateKunde
     state CreateChoice <<choice>>
     CreateKunde --> CreateChoice: Button "OK"
@@ -56,6 +56,9 @@ state index.html {
     UpdateKunde -up-> UpdateChoice: Button "OK"
     UpdateChoice --> UpdateKunde: fehlerhafte Daten
     UpdateChoice --> DetailsKunde: korrekte Daten
+
+    [*] -down-> DiagrammKunde: Menüpunkt "Diagramm"
+    CreateKunde -right[hidden]-> DiagrammKunde
 }
 
 footer (c) Jürgen Zimmermann

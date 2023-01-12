@@ -61,8 +61,12 @@
         role="tabpanel"
         aria-labelledby="stammdaten-tab"
       >
-        <div class="mt-2 ms-2">
-          <hs-details-stammdaten [kunde]="kunde"> </hs-details-stammdaten>
+        <div class="mt-2 ms-2" style="margin: auto; padding: 1em">
+          <mat-card>
+            <mat-card-header>
+              <hs-details-stammdaten [kunde]="kunde"> </hs-details-stammdaten>
+            </mat-card-header>
+          </mat-card>
         </div>
       </div>
 
@@ -72,8 +76,10 @@
         role="tabpanel"
         aria-labelledby="adresse-tab"
       >
-        <div class="mt-2 ms-2">
-          <hs-details-adresse [kunde]="kunde"> </hs-details-adresse>
+        <div class="mt-2 ms-2" style="margin: auto; padding: 1em">
+          <mat-card>
+            <hs-details-adresse [kunde]="kunde"> </hs-details-adresse>
+          </mat-card>
         </div>
       </div>
     </div>

@@ -19,27 +19,11 @@
 
 'top to bottom direction
 
-rectangle SucheKunden
-rectangle Suchformular
-rectangle Waiting
-rectangle Suchergebnis
+rectangle DiagrammKunde
+rectangle Tortendiagramm
 
-SucheKunden --> Suchformular
-SucheKunden --> Waiting
-SucheKunden --> Suchergebnis
+DiagrammKunde --> Tortendiagramm
 
-rectangle SucheNachname
-rectangle SucheGeschlecht
-rectangle SucheFamilienstand
 
-Suchformular --> SucheNachname
-Suchformular --> SucheGeschlecht
-Suchformular --> SucheFamilienstand
-
-rectangle ErrorMessage
-rectangle GefundeneKunden
-
-Suchergebnis --> ErrorMessage
-Suchergebnis --> GefundeneKunden
 
 @enduml
