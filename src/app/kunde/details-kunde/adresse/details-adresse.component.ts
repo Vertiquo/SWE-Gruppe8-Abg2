@@ -28,6 +28,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-details-adresse',
     templateUrl: './details-adresse.component.html',
+    styleUrls: ['../details-kunde.component.scss'],
     imports: [DetailsOrtComponent, DetailsPlzComponent, NgIf],
     standalone: true,
 })
