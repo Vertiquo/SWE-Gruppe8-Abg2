@@ -28,6 +28,7 @@ import { FindError } from '../shared/errors';
 import { HttpStatusCode } from '@angular/common/http';
 import { type Kunde } from '../shared/kunde';
 import { KundeReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { MatCardModule } from '@angular/material/card';
 import { NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { WaitingComponent } from '../../shared/waiting.component';
@@ -39,12 +40,14 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-details-kunde',
     templateUrl: './details-kunde.component.html',
+    styleUrls: ['./details-kunde.component.scss'],
     imports: [
         DetailsBearbeitenComponent,
         DetailsBreadcrumbsComponent,
         DetailsAdresseComponent,
         DetailsStammdatenComponent,
         ErrorMessageComponent,
+        MatCardModule,
         NgIf,
         WaitingComponent,
     ],
