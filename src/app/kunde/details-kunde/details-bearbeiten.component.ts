@@ -29,6 +29,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-details-bearbeiten',
     templateUrl: './details-bearbeiten.component.html',
+    styleUrls: ['./details-kunde.component.scss'],
     imports: [
         MatButtonModule,
         MatCardModule,
