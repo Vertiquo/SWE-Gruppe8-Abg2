@@ -15,9 +15,18 @@
 
 @use '../../sass/colors';
 
-:root {
-  --background-color: var(-#273c84);
-  --gradient: url('/assets/img/gradientBlueSky.webp');
+.cardWarning {
+  margin-bottom: 20px;
+}
+
+.cardCreate {
+  margin: 20px auto;
+  background-color: var(--themelight);
+  width: 80%;
+}
+
+.cardCreateTitle {
+  text-align: center;
 }
 
 .box-create {
@@ -51,10 +60,4 @@
   width: 80%;
   margin: auto;
   padding-top: 25px;
-}
-
-.createTitle {
-  background-color: #02a7f0;
-  width: 100%;
-  text-align: center;
 }
