@@ -34,6 +34,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-details-stammdaten',
     templateUrl: './details-stammdaten.component.html',
+    styleUrls: ['../details-kunde.component.scss'],
     imports: [
         DetailsEmailComponent,
         DetailsFamilienstandComponent,
