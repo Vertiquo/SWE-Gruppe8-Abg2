@@ -22,6 +22,7 @@ import { type KundeServer, toKunde } from './kundeServer';
 import {
     HttpClient,
     type HttpErrorResponse,
+    HttpHeaders,
     HttpParams,
     type HttpResponse,
 } from '@angular/common/http';
@@ -71,6 +72,16 @@ export interface KundenServer {
 export class KundeReadService {
     readonly #baseUrl = paths.base;
 
+    private static readonly USERNAME = 'admin';
+
+    private static readonly PASSWORD = 'p';
+
+    private static readonly BASE64 = window.btoa(
+        `${KundeReadService.USERNAME}:${KundeReadService.PASSWORD}`,
+    );
+
+    private static readonly BASIC_AUTH = `Basic ${KundeReadService.BASE64}`;
+
     /**
      * @param httpClient injizierter Service HttpClient (von Angular)
      * @return void
@@ -105,9 +116,17 @@ export class KundeReadService {
         // - Cancel ist moeglich
         // https://stackoverflow.com/questions/37364973/what-is-the-difference-between-promises-and-observables
 
+        const headers = new HttpHeaders({
+            // eslint-disable-next-line @typescript-eslint/naming-convention
+            Authorization: KundeReadService.BASIC_AUTH,
+            // eslint-disable-next-line @typescript-eslint/naming-convention
+            Accept: 'application/hal+json',
+        });
+        log.debug('KundeReadService.find: headers=%o', headers);
+
         return (
             this.httpClient
-                .get<KundenServer>(this.#baseUrl, { params })
+                .get<KundenServer>(this.#baseUrl, { headers, params })
 
                 // pipe ist eine "pure" Funktion, die ein Observable in ein NEUES Observable transformiert
                 .pipe(
