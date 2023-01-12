@@ -20,69 +20,24 @@
 <ng-template #details>
   <hs-details-breadcrumbs></hs-details-breadcrumbs>
 
-  <section class="mt-1 ms-1" *ngIf="kunde; else showErrorMsg">
-    <h4>Kunde {{ kunde.id }}:</h4>
+  <section *ngIf="kunde; else showErrorMsg">
+    <mat-card>
+      <mat-card-content class="detailsCard">Details</mat-card-content>
+    </mat-card>
 
-    <!-- https://v5.getbootstrap.com/docs/5.1/components/navs/tabs -->
-    <!-- jQuery erfordert id -->
-    <ul class="nav nav-tabs mt-1 ms-1" id="kundeDetails">
-      <li class="nav-item">
-        <a
-          class="nav-link active"
-          id="stammdaten-tab"
-          href="#stammdaten"
-          data-bs-toggle="tab"
-          role="tab"
-          aria-controls="stammdaten"
-          aria-expanded="true"
-        >
-          Stammdaten
-        </a>
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          id="adresse-tab"
-          href="#adresse"
-          data-bs-toggle="tab"
-          role="tab"
-          aria-controls="adresse"
-          aria-expanded="true"
-        >
-          Adresse
-        </a>
-      </li>
-    </ul>
+    <mat-card>
+      <mat-card-content class="KundenID">Kunde {{ kunde.id }}:</mat-card-content>
+    </mat-card>
 
-    <div class="tab-content" id="kundeContent">
-      <div
-        class="tab-pane fade show active"
-        id="stammdaten"
-        role="tabpanel"
-        aria-labelledby="stammdaten-tab"
-      >
-        <div class="mt-2 ms-2" style="margin: auto; padding: 1em">
-          <mat-card>
-            <mat-card-header>
-              <hs-details-stammdaten [kunde]="kunde"> </hs-details-stammdaten>
-            </mat-card-header>
-          </mat-card>
-        </div>
-      </div>
+    <mat-tab-group>
+    <mat-tab label="Stammdaten">
+      <hs-details-stammdaten [kunde]="kunde"> </hs-details-stammdaten>
+    </mat-tab>
 
-      <div
-        class="tab-pane fade"
-        id="adresse"
-        role="tabpanel"
-        aria-labelledby="adresse-tab"
-      >
-        <div class="mt-2 ms-2" style="margin: auto; padding: 1em">
-          <mat-card>
-            <hs-details-adresse [kunde]="kunde"> </hs-details-adresse>
-          </mat-card>
-        </div>
-      </div>
-    </div>
+    <mat-tab label="Adresse">
+      <hs-details-adresse [kunde]="kunde"> </hs-details-adresse>
+    </mat-tab>
+    </mat-tab-group> 
 
     <hs-details-bearbeiten [id]="kunde.id" *ngIf="isAdmin">
     </hs-details-bearbeiten>

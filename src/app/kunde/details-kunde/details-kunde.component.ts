@@ -29,6 +29,7 @@ import { HttpStatusCode } from '@angular/common/http';
 import { type Kunde } from '../shared/kunde';
 import { KundeReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
 import { NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { WaitingComponent } from '../../shared/waiting.component';
@@ -48,6 +49,7 @@ import log from 'loglevel';
         DetailsStammdatenComponent,
         ErrorMessageComponent,
         MatCardModule,
+        MatTabsModule,
         NgIf,
         WaitingComponent,
     ],
